@@ -1,0 +1,1008 @@
+﻿<?xml version="1.0" ?>
+<profile version="9">
+    <devices>
+        <device device-guid="{6F1D2B61-D5A0-11CF-BFC7-444553540000}" label="" name="keyboard" type="keyboard">
+            <mode inherit="Default" name="Combat"/>
+            <mode name="Default"/>
+            <mode inherit="Default" name="External Camera"/>
+            <mode inherit="Default" name="Flight"/>
+        </device>
+        <device device-guid="{965D71E0-25CA-11EB-8001-444553540000}" label="" name="X52 Professional H.O.T.A.S." type="joystick">
+            <mode inherit="Default" name="Combat">
+                <axis description="" id="1"/>
+                <axis description="" id="2"/>
+                <axis description="" id="3"/>
+                <axis description="" id="4"/>
+                <axis description="" id="5"/>
+                <axis description="" id="6"/>
+                <axis description="" id="7"/>
+                <button description="Primary Weapon" id="1">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-mouse button-id="1" direction="0" max-speed="15" min-speed="5" motion-input="False" time-to-max-speed="1.0">
+                                <activation-condition rule="all">
+                                    <condition comparison="released" condition-type="joystick" device-guid="{965D71E0-25CA-11EB-8001-444553540000}" device-name="X52 Professional H.O.T.A.S." id="6" input="button"/>
+                                </activation-condition>
+                            </map-to-mouse>
+                            <map-to-mouse button-id="2" direction="0" max-speed="15" min-speed="5" motion-input="False" time-to-max-speed="1.0">
+                                <activation-condition rule="all">
+                                    <condition comparison="pressed" condition-type="joystick" device-guid="{965D71E0-25CA-11EB-8001-444553540000}" device-name="X52 Professional H.O.T.A.S." id="6" input="button"/>
+                                </activation-condition>
+                            </map-to-mouse>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="Missile Lock / Launch Missile (Hold)" id="2">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-mouse button-id="3" direction="0" max-speed="15" min-speed="5" motion-input="False" time-to-max-speed="1.0"/>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="Flares" id="3">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="35"/>
+                            </map-to-keyboard>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="Chaffs" id="4">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="36"/>
+                            </map-to-keyboard>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="" id="5"/>
+                <button description="" id="6"/>
+                <button description="" id="7"/>
+                <button description="" id="8"/>
+                <button description="" id="9"/>
+                <button description="" id="10"/>
+                <button description="" id="11"/>
+                <button description="" id="12"/>
+                <button description="" id="13"/>
+                <button description="" id="14"/>
+                <button description="Fire All Weapons" id="15">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-mouse button-id="1" direction="0" max-speed="15" min-speed="5" motion-input="False" time-to-max-speed="1.0"/>
+                            <map-to-mouse button-id="2" direction="0" max-speed="15" min-speed="5" motion-input="False" time-to-max-speed="1.0"/>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="" id="16"/>
+                <button description="" id="17"/>
+                <button description="" id="18"/>
+                <button description="" id="19"/>
+                <button description="" id="20"/>
+                <button description="" id="21"/>
+                <button description="" id="22"/>
+                <button description="" id="23"/>
+                <button description="" id="24"/>
+                <button description="Cycle Gimbal Mode" id="25">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="34"/>
+                            </map-to-keyboard>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="" id="26"/>
+                <button description="Toggle Scan Mode" id="27">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="15"/>
+                            </map-to-keyboard>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="" id="28"/>
+                <button description="" id="29">
+                    <container type="basic">
+                        <action-set>
+                            <switch-mode name="Flight"/>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="" id="30"/>
+                <button description="" id="31"/>
+                <button description="" id="32"/>
+                <button description="" id="33"/>
+                <button description="" id="34"/>
+                <button description="" id="35"/>
+                <button description="" id="36"/>
+                <button description="" id="37"/>
+                <button description="" id="38"/>
+                <button description="" id="39"/>
+                <hat description="" id="1"/>
+            </mode>
+            <mode name="Default">
+                <axis description="" id="1"/>
+                <axis description="" id="2"/>
+                <axis description="Throttle" id="3">
+                    <container type="basic">
+                        <action-set>
+                            <remap axis="3" axis-scaling="1.0" axis-type="absolute" vjoy="1">
+                                <activation-condition rule="all"/>
+                            </remap>
+                            <response-curve>
+                                <mapping type="cubic-spline">
+                                    <control-point x="-1.0" y="1.0"/>
+                                    <control-point x="1.0" y="-1.0"/>
+                                </mapping>
+                                <deadzone center-high="0.0" center-low="0.0" high="1.0" low="-1.0"/>
+                                <activation-condition rule="all"/>
+                            </response-curve>
+                        </action-set>
+                    </container>
+                </axis>
+                <axis description="Speed Limit" id="4">
+                    <container type="basic">
+                        <action-set>
+                            <remap axis="4" axis-scaling="1.0" axis-type="absolute" vjoy="1"/>
+                            <response-curve>
+                                <mapping type="cubic-spline">
+                                    <control-point x="-1.0" y="-1.0"/>
+                                    <control-point x="1.0" y="1.0"/>
+                                    <control-point x="-0.004" y="-0.692"/>
+                                    <control-point x="-0.4" y="-0.896"/>
+                                </mapping>
+                                <deadzone center-high="0.0" center-low="0.0" high="1.0" low="-1.0"/>
+                            </response-curve>
+                        </action-set>
+                    </container>
+                </axis>
+                <axis description="" id="5"/>
+                <axis description="" id="6"/>
+                <axis description="" id="7"/>
+                <button description="" id="1"/>
+                <button description="" id="2"/>
+                <button description="" id="3"/>
+                <button description="" id="4"/>
+                <button description="Set Target" id="5">
+                    <container timeout="0.0" type="chain">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="20"/>
+                                <activation-condition rule="all"/>
+                            </map-to-keyboard>
+                        </action-set>
+                        <action-set>
+                            <macro>
+                                <properties/>
+                                <actions>
+                                    <key extended="False" press="True" scan-code="56"/>
+                                    <pause duration="0.2"/>
+                                    <key extended="False" press="True" scan-code="20"/>
+                                    <key extended="False" press="False" scan-code="20"/>
+                                    <key extended="False" press="False" scan-code="56"/>
+                                </actions>
+                                <activation-condition rule="all"/>
+                            </macro>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="" id="6"/>
+                <button description="Reverse Throttle / Cruise (Shift)" id="7">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="56"/>
+                                <key extended="True" scan-code="80"/>
+                                <activation-condition rule="all">
+                                    <condition comparison="released" condition-type="joystick" device-guid="{965D71E0-25CA-11EB-8001-444553540000}" device-name="X52 Professional H.O.T.A.S." id="6" input="button"/>
+                                </activation-condition>
+                            </map-to-keyboard>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="46"/>
+                                <activation-condition rule="all">
+                                    <condition comparison="pressed" condition-type="joystick" device-guid="{965D71E0-25CA-11EB-8001-444553540000}" device-name="X52 Professional H.O.T.A.S." id="6" input="button"/>
+                                </activation-condition>
+                            </map-to-keyboard>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="" id="8"/>
+                <button description="" id="9"/>
+                <button description="" id="10"/>
+                <button description="" id="11"/>
+                <button description="" id="12"/>
+                <button description="" id="13"/>
+                <button description="" id="14"/>
+                <button description="" id="15"/>
+                <button description="Reset Head / Third Person View (Shift)" id="16">
+                    <container type="basic">
+                        <action-set>
+                            <macro>
+                                <properties/>
+                                <actions>
+                                    <key extended="False" press="True" scan-code="44"/>
+                                    <pause duration="0.3"/>
+                                    <key extended="False" press="False" scan-code="44"/>
+                                </actions>
+                                <activation-condition rule="all">
+                                    <condition comparison="released" condition-type="joystick" device-guid="{965D71E0-25CA-11EB-8001-444553540000}" device-name="X52 Professional H.O.T.A.S." id="6" input="button"/>
+                                </activation-condition>
+                            </macro>
+                        </action-set>
+                    </container>
+                    <container type="basic">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="62"/>
+                            </map-to-keyboard>
+                            <switch-mode name="External Camera"/>
+                        </action-set>
+                        <activation-condition rule="all">
+                            <condition comparison="pressed" condition-type="joystick" device-guid="{965D71E0-25CA-11EB-8001-444553540000}" device-name="X52 Professional H.O.T.A.S." id="6" input="button"/>
+                        </activation-condition>
+                    </container>
+                </button>
+                <button description="" id="17"/>
+                <button description="" id="18"/>
+                <button description="" id="19"/>
+                <button description="Thrusters Up" id="20">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="57"/>
+                            </map-to-keyboard>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="Thrusters Right" id="21">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="32"/>
+                            </map-to-keyboard>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="Thrusters Down" id="22">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="29"/>
+                            </map-to-keyboard>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="Thrusters Left" id="23">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="30"/>
+                            </map-to-keyboard>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="" id="24"/>
+                <button description="" id="25"/>
+                <button description="Decoupled Mode" id="26">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="47"/>
+                            </map-to-keyboard>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="" id="27"/>
+                <button description="Combat Mode" id="28">
+                    <container type="basic">
+                        <action-set>
+                            <switch-mode name="Combat"/>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="Flight Mode" id="29">
+                    <container type="basic">
+                        <action-set>
+                            <switch-mode name="Flight"/>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="Operation Mode" id="30">
+                    <container type="basic">
+                        <action-set>
+                            <switch-mode name="Operation"/>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="Afterburner / Spacebreake (Shift)" id="31">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="42"/>
+                                <activation-condition rule="all">
+                                    <condition comparison="released" condition-type="joystick" device-guid="{965D71E0-25CA-11EB-8001-444553540000}" device-name="X52 Professional H.O.T.A.S." id="6" input="button"/>
+                                </activation-condition>
+                            </map-to-keyboard>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="45"/>
+                                <activation-condition rule="all">
+                                    <condition comparison="pressed" condition-type="joystick" device-guid="{965D71E0-25CA-11EB-8001-444553540000}" device-name="X52 Professional H.O.T.A.S." id="6" input="button"/>
+                                </activation-condition>
+                            </map-to-keyboard>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="" id="32"/>
+                <button description="" id="33"/>
+                <button description="" id="34"/>
+                <button description="" id="35"/>
+                <button description="" id="36"/>
+                <button description="" id="37"/>
+                <button description="" id="38"/>
+                <button description="" id="39"/>
+                <hat description="" id="1"/>
+            </mode>
+            <mode inherit="Default" name="External Camera">
+                <axis description="" id="1"/>
+                <axis description="" id="2"/>
+                <axis description="" id="3"/>
+                <axis description="" id="4"/>
+                <axis description="" id="5"/>
+                <axis description="" id="6"/>
+                <axis description="" id="7"/>
+                <button description="" id="1"/>
+                <button description="" id="2"/>
+                <button description="" id="3"/>
+                <button description="Cockpit View" id="4">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="62"/>
+                            </map-to-keyboard>
+                            <previous-mode/>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="" id="5"/>
+                <button description="" id="6"/>
+                <button description="" id="7"/>
+                <button description="" id="8"/>
+                <button description="" id="9"/>
+                <button description="" id="10"/>
+                <button description="" id="11"/>
+                <button description="" id="12"/>
+                <button description="" id="13"/>
+                <button description="" id="14"/>
+                <button description="" id="15"/>
+                <button description="Cockpit View" id="16">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="62"/>
+                            </map-to-keyboard>
+                            <previous-mode/>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="" id="17"/>
+                <button description="" id="18"/>
+                <button description="" id="19"/>
+                <button description="" id="20"/>
+                <button description="" id="21"/>
+                <button description="" id="22"/>
+                <button description="" id="23"/>
+                <button description="" id="24"/>
+                <button description="" id="25"/>
+                <button description="" id="26"/>
+                <button description="" id="27"/>
+                <button description="" id="28"/>
+                <button description="" id="29"/>
+                <button description="" id="30"/>
+                <button description="" id="31"/>
+                <button description="" id="32"/>
+                <button description="" id="33"/>
+                <button description="" id="34"/>
+                <button description="" id="35"/>
+                <button description="" id="36"/>
+                <button description="" id="37"/>
+                <button description="" id="38"/>
+                <button description="" id="39"/>
+                <hat description="Cycle Camera Views" id="1">
+                    <container button-count="4" type="hat_buttons">
+                        <action-set>
+                            <macro>
+                                <properties/>
+                                <actions>
+                                    <key extended="False" press="True" scan-code="62"/>
+                                    <pause duration="0.2"/>
+                                    <key extended="False" press="True" scan-code="72"/>
+                                    <key extended="False" press="False" scan-code="72"/>
+                                    <key extended="False" press="False" scan-code="62"/>
+                                </actions>
+                                <activation-condition rule="all">
+                                    <condition comparison="north" condition-type="joystick" device-guid="{965D71E0-25CA-11EB-8001-444553540000}" device-name="X52 Professional H.O.T.A.S." id="1" input="hat"/>
+                                </activation-condition>
+                            </macro>
+                        </action-set>
+                        <action-set>
+                            <macro>
+                                <properties/>
+                                <actions>
+                                    <key extended="False" press="True" scan-code="62"/>
+                                    <pause duration="0.2"/>
+                                    <key extended="False" press="True" scan-code="77"/>
+                                    <key extended="False" press="False" scan-code="77"/>
+                                    <key extended="False" press="False" scan-code="62"/>
+                                </actions>
+                                <activation-condition rule="all">
+                                    <condition comparison="east" condition-type="joystick" device-guid="{965D71E0-25CA-11EB-8001-444553540000}" device-name="X52 Professional H.O.T.A.S." id="1" input="hat"/>
+                                </activation-condition>
+                            </macro>
+                        </action-set>
+                        <action-set>
+                            <macro>
+                                <properties/>
+                                <actions>
+                                    <key extended="False" press="True" scan-code="62"/>
+                                    <pause duration="0.2"/>
+                                    <key extended="False" press="True" scan-code="80"/>
+                                    <key extended="False" press="False" scan-code="80"/>
+                                    <key extended="False" press="False" scan-code="62"/>
+                                </actions>
+                                <activation-condition rule="all">
+                                    <condition comparison="south" condition-type="joystick" device-guid="{965D71E0-25CA-11EB-8001-444553540000}" device-name="X52 Professional H.O.T.A.S." id="1" input="hat"/>
+                                </activation-condition>
+                            </macro>
+                        </action-set>
+                        <action-set>
+                            <macro>
+                                <properties/>
+                                <actions>
+                                    <key extended="False" press="True" scan-code="62"/>
+                                    <pause duration="0.2"/>
+                                    <key extended="False" press="True" scan-code="75"/>
+                                    <key extended="False" press="False" scan-code="75"/>
+                                    <key extended="False" press="False" scan-code="62"/>
+                                </actions>
+                                <activation-condition rule="all">
+                                    <condition comparison="west" condition-type="joystick" device-guid="{965D71E0-25CA-11EB-8001-444553540000}" device-name="X52 Professional H.O.T.A.S." id="1" input="hat"/>
+                                </activation-condition>
+                            </macro>
+                        </action-set>
+                    </container>
+                </hat>
+            </mode>
+            <mode inherit="Default" name="Flight">
+                <axis description="" id="1"/>
+                <axis description="" id="2"/>
+                <axis description="" id="3"/>
+                <axis description="" id="4"/>
+                <axis description="" id="5"/>
+                <axis description="" id="6"/>
+                <axis description="" id="7"/>
+                <button description="" id="1"/>
+                <button description="Quantum Drive" id="2">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="48"/>
+                            </map-to-keyboard>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="" id="3"/>
+                <button description="" id="4"/>
+                <button description="" id="5"/>
+                <button description="" id="6"/>
+                <button description="" id="7"/>
+                <button description="" id="8"/>
+                <button description="Flight Ready / Landing Gear (Tempo)" id="9">
+                    <container activate-on="press" delay="0.7000000000000001" type="tempo">
+                        <action-set/>
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="19"/>
+                            </map-to-keyboard>
+                        </action-set>
+                    </container>
+                    <container activate-on="release" delay="0.5" type="tempo">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="49"/>
+                            </map-to-keyboard>
+                        </action-set>
+                        <action-set/>
+                    </container>
+                </button>
+                <button description="Systems Off / VTOL (Tempo)" id="10">
+                    <container activate-on="press" delay="0.7" type="tempo">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="37"/>
+                            </map-to-keyboard>
+                        </action-set>
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="22"/>
+                            </map-to-keyboard>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="23"/>
+                            </map-to-keyboard>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="Ship Lights" id="11">
+                    <container type="basic">
+                        <action-set>
+                            <map-to-keyboard>
+                                <key extended="False" scan-code="38"/>
+                            </map-to-keyboard>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="" id="12"/>
+                <button description="" id="13"/>
+                <button description="" id="14"/>
+                <button description="" id="15"/>
+                <button description="" id="16"/>
+                <button description="" id="17"/>
+                <button description="" id="18"/>
+                <button description="" id="19"/>
+                <button description="" id="20"/>
+                <button description="" id="21"/>
+                <button description="" id="22"/>
+                <button description="" id="23"/>
+                <button description="" id="24"/>
+                <button description="" id="25"/>
+                <button description="" id="26"/>
+                <button description="" id="27"/>
+                <button description="Combat Mode" id="28">
+                    <container type="basic">
+                        <action-set>
+                            <switch-mode name="Combat"/>
+                        </action-set>
+                    </container>
+                </button>
+                <button description="" id="29"/>
+                <button description="" id="30"/>
+                <button description="" id="31"/>
+                <button description="" id="32"/>
+                <button description="" id="33"/>
+                <button description="" id="34"/>
+                <button description="" id="35"/>
+                <button description="" id="36"/>
+                <button description="" id="37"/>
+                <button description="" id="38"/>
+                <button description="" id="39"/>
+                <hat description="" id="1"/>
+            </mode>
+        </device>
+    </devices>
+    <vjoy-devices>
+        <vjoy-device device-guid="{DD3C1970-2EAF-11EB-8002-444553540000}" label="" name="vJoy Device" type="vjoy">
+            <mode name="Combat">
+                <axis description="" id="1"/>
+                <axis description="" id="2"/>
+                <axis description="" id="3"/>
+                <axis description="" id="4"/>
+                <axis description="" id="5"/>
+                <axis description="" id="6"/>
+                <axis description="" id="7"/>
+                <button description="" id="1"/>
+                <button description="" id="2"/>
+                <button description="" id="3"/>
+                <button description="" id="4"/>
+                <button description="" id="5"/>
+                <button description="" id="6"/>
+                <button description="" id="7"/>
+                <button description="" id="8"/>
+                <button description="" id="9"/>
+                <button description="" id="10"/>
+                <button description="" id="11"/>
+                <button description="" id="12"/>
+                <button description="" id="13"/>
+                <button description="" id="14"/>
+                <button description="" id="15"/>
+                <button description="" id="16"/>
+                <button description="" id="17"/>
+                <button description="" id="18"/>
+                <button description="" id="19"/>
+                <button description="" id="20"/>
+                <button description="" id="21"/>
+                <button description="" id="22"/>
+                <button description="" id="23"/>
+                <button description="" id="24"/>
+                <button description="" id="25"/>
+                <button description="" id="26"/>
+                <button description="" id="27"/>
+                <button description="" id="28"/>
+                <button description="" id="29"/>
+                <button description="" id="30"/>
+                <button description="" id="31"/>
+                <button description="" id="32"/>
+                <button description="" id="33"/>
+                <button description="" id="34"/>
+                <button description="" id="35"/>
+                <button description="" id="36"/>
+                <button description="" id="37"/>
+                <button description="" id="38"/>
+                <button description="" id="39"/>
+                <hat description="" id="1"/>
+            </mode>
+            <mode name="Default">
+                <axis description="" id="1"/>
+                <axis description="" id="2"/>
+                <axis description="" id="3"/>
+                <axis description="" id="4"/>
+                <axis description="" id="5"/>
+                <axis description="" id="6"/>
+                <axis description="" id="7"/>
+                <button description="" id="1"/>
+                <button description="" id="2"/>
+                <button description="" id="3"/>
+                <button description="" id="4"/>
+                <button description="" id="5"/>
+                <button description="" id="6"/>
+                <button description="" id="7"/>
+                <button description="" id="8"/>
+                <button description="" id="9"/>
+                <button description="" id="10"/>
+                <button description="" id="11"/>
+                <button description="" id="12"/>
+                <button description="" id="13"/>
+                <button description="" id="14"/>
+                <button description="" id="15"/>
+                <button description="" id="16"/>
+                <button description="" id="17"/>
+                <button description="" id="18"/>
+                <button description="" id="19"/>
+                <button description="" id="20"/>
+                <button description="" id="21"/>
+                <button description="" id="22"/>
+                <button description="" id="23"/>
+                <button description="" id="24"/>
+                <button description="" id="25"/>
+                <button description="" id="26"/>
+                <button description="" id="27"/>
+                <button description="" id="28"/>
+                <button description="" id="29"/>
+                <button description="" id="30"/>
+                <button description="" id="31"/>
+                <button description="" id="32"/>
+                <button description="" id="33"/>
+                <button description="" id="34"/>
+                <button description="" id="35"/>
+                <button description="" id="36"/>
+                <button description="" id="37"/>
+                <button description="" id="38"/>
+                <button description="" id="39"/>
+                <hat description="" id="1"/>
+            </mode>
+            <mode name="External Camera">
+                <axis description="" id="1"/>
+                <axis description="" id="2"/>
+                <axis description="" id="3"/>
+                <axis description="" id="4"/>
+                <axis description="" id="5"/>
+                <axis description="" id="6"/>
+                <axis description="" id="7"/>
+                <button description="" id="1"/>
+                <button description="" id="2"/>
+                <button description="" id="3"/>
+                <button description="" id="4"/>
+                <button description="" id="5"/>
+                <button description="" id="6"/>
+                <button description="" id="7"/>
+                <button description="" id="8"/>
+                <button description="" id="9"/>
+                <button description="" id="10"/>
+                <button description="" id="11"/>
+                <button description="" id="12"/>
+                <button description="" id="13"/>
+                <button description="" id="14"/>
+                <button description="" id="15"/>
+                <button description="" id="16"/>
+                <button description="" id="17"/>
+                <button description="" id="18"/>
+                <button description="" id="19"/>
+                <button description="" id="20"/>
+                <button description="" id="21"/>
+                <button description="" id="22"/>
+                <button description="" id="23"/>
+                <button description="" id="24"/>
+                <button description="" id="25"/>
+                <button description="" id="26"/>
+                <button description="" id="27"/>
+                <button description="" id="28"/>
+                <button description="" id="29"/>
+                <button description="" id="30"/>
+                <button description="" id="31"/>
+                <button description="" id="32"/>
+                <button description="" id="33"/>
+                <button description="" id="34"/>
+                <button description="" id="35"/>
+                <button description="" id="36"/>
+                <button description="" id="37"/>
+                <button description="" id="38"/>
+                <button description="" id="39"/>
+                <hat description="" id="1"/>
+            </mode>
+            <mode name="Flight">
+                <axis description="" id="1"/>
+                <axis description="" id="2"/>
+                <axis description="" id="3"/>
+                <axis description="" id="4"/>
+                <axis description="" id="5"/>
+                <axis description="" id="6"/>
+                <axis description="" id="7"/>
+                <button description="" id="1"/>
+                <button description="" id="2"/>
+                <button description="" id="3"/>
+                <button description="" id="4"/>
+                <button description="" id="5"/>
+                <button description="" id="6"/>
+                <button description="" id="7"/>
+                <button description="" id="8"/>
+                <button description="" id="9"/>
+                <button description="" id="10"/>
+                <button description="" id="11"/>
+                <button description="" id="12"/>
+                <button description="" id="13"/>
+                <button description="" id="14"/>
+                <button description="" id="15"/>
+                <button description="" id="16"/>
+                <button description="" id="17"/>
+                <button description="" id="18"/>
+                <button description="" id="19"/>
+                <button description="" id="20"/>
+                <button description="" id="21"/>
+                <button description="" id="22"/>
+                <button description="" id="23"/>
+                <button description="" id="24"/>
+                <button description="" id="25"/>
+                <button description="" id="26"/>
+                <button description="" id="27"/>
+                <button description="" id="28"/>
+                <button description="" id="29"/>
+                <button description="" id="30"/>
+                <button description="" id="31"/>
+                <button description="" id="32"/>
+                <button description="" id="33"/>
+                <button description="" id="34"/>
+                <button description="" id="35"/>
+                <button description="" id="36"/>
+                <button description="" id="37"/>
+                <button description="" id="38"/>
+                <button description="" id="39"/>
+                <hat description="" id="1"/>
+            </mode>
+            <mode name="Operation">
+                <axis description="" id="1"/>
+                <axis description="" id="2"/>
+                <axis description="" id="3"/>
+                <axis description="" id="4"/>
+                <axis description="" id="5"/>
+                <axis description="" id="6"/>
+                <axis description="" id="7"/>
+                <button description="" id="1"/>
+                <button description="" id="2"/>
+                <button description="" id="3"/>
+                <button description="" id="4"/>
+                <button description="" id="5"/>
+                <button description="" id="6"/>
+                <button description="" id="7"/>
+                <button description="" id="8"/>
+                <button description="" id="9"/>
+                <button description="" id="10"/>
+                <button description="" id="11"/>
+                <button description="" id="12"/>
+                <button description="" id="13"/>
+                <button description="" id="14"/>
+                <button description="" id="15"/>
+                <button description="" id="16"/>
+                <button description="" id="17"/>
+                <button description="" id="18"/>
+                <button description="" id="19"/>
+                <button description="" id="20"/>
+                <button description="" id="21"/>
+                <button description="" id="22"/>
+                <button description="" id="23"/>
+                <button description="" id="24"/>
+                <button description="" id="25"/>
+                <button description="" id="26"/>
+                <button description="" id="27"/>
+                <button description="" id="28"/>
+                <button description="" id="29"/>
+                <button description="" id="30"/>
+                <button description="" id="31"/>
+                <button description="" id="32"/>
+                <button description="" id="33"/>
+                <button description="" id="34"/>
+                <button description="" id="35"/>
+                <button description="" id="36"/>
+                <button description="" id="37"/>
+                <button description="" id="38"/>
+                <button description="" id="39"/>
+                <hat description="" id="1"/>
+            </mode>
+        </vjoy-device>
+        <vjoy-device device-guid="{E32FFB80-416F-11EB-8003-444553540000}" label="" name="vJoy Device" type="vjoy">
+            <mode name="Combat">
+                <axis description="" id="1"/>
+                <axis description="" id="2"/>
+                <axis description="" id="3"/>
+                <axis description="" id="4"/>
+                <axis description="" id="5"/>
+                <axis description="" id="6"/>
+                <axis description="" id="7"/>
+                <axis description="" id="8"/>
+                <button description="" id="1"/>
+                <button description="" id="2"/>
+                <button description="" id="3"/>
+                <button description="" id="4"/>
+                <button description="" id="5"/>
+                <button description="" id="6"/>
+                <button description="" id="7"/>
+                <button description="" id="8"/>
+                <button description="" id="9"/>
+                <button description="" id="10"/>
+                <button description="" id="11"/>
+                <button description="" id="12"/>
+                <button description="" id="13"/>
+                <button description="" id="14"/>
+                <button description="" id="15"/>
+                <button description="" id="16"/>
+                <button description="" id="17"/>
+                <button description="" id="18"/>
+                <button description="" id="19"/>
+                <button description="" id="20"/>
+                <button description="" id="21"/>
+                <button description="" id="22"/>
+                <button description="" id="23"/>
+                <button description="" id="24"/>
+                <button description="" id="25"/>
+                <button description="" id="26"/>
+                <button description="" id="27"/>
+                <button description="" id="28"/>
+                <button description="" id="29"/>
+                <button description="" id="30"/>
+                <button description="" id="31"/>
+                <button description="" id="32"/>
+            </mode>
+            <mode name="Default">
+                <axis description="" id="1"/>
+                <axis description="" id="2"/>
+                <axis description="" id="3"/>
+                <axis description="" id="4"/>
+                <axis description="" id="5"/>
+                <axis description="" id="6"/>
+                <axis description="" id="7"/>
+                <axis description="" id="8"/>
+                <button description="" id="1"/>
+                <button description="" id="2"/>
+                <button description="" id="3"/>
+                <button description="" id="4"/>
+                <button description="" id="5"/>
+                <button description="" id="6"/>
+                <button description="" id="7"/>
+                <button description="" id="8"/>
+                <button description="" id="9"/>
+                <button description="" id="10"/>
+                <button description="" id="11"/>
+                <button description="" id="12"/>
+                <button description="" id="13"/>
+                <button description="" id="14"/>
+                <button description="" id="15"/>
+                <button description="" id="16"/>
+                <button description="" id="17"/>
+                <button description="" id="18"/>
+                <button description="" id="19"/>
+                <button description="" id="20"/>
+                <button description="" id="21"/>
+                <button description="" id="22"/>
+                <button description="" id="23"/>
+                <button description="" id="24"/>
+                <button description="" id="25"/>
+                <button description="" id="26"/>
+                <button description="" id="27"/>
+                <button description="" id="28"/>
+                <button description="" id="29"/>
+                <button description="" id="30"/>
+                <button description="" id="31"/>
+                <button description="" id="32"/>
+            </mode>
+            <mode name="External Camera"/>
+            <mode name="Flight">
+                <axis description="" id="1"/>
+                <axis description="" id="2"/>
+                <axis description="" id="3"/>
+                <axis description="" id="4"/>
+                <axis description="" id="5"/>
+                <axis description="" id="6"/>
+                <axis description="" id="7"/>
+                <axis description="" id="8"/>
+                <button description="" id="1"/>
+                <button description="" id="2"/>
+                <button description="" id="3"/>
+                <button description="" id="4"/>
+                <button description="" id="5"/>
+                <button description="" id="6"/>
+                <button description="" id="7"/>
+                <button description="" id="8"/>
+                <button description="" id="9"/>
+                <button description="" id="10"/>
+                <button description="" id="11"/>
+                <button description="" id="12"/>
+                <button description="" id="13"/>
+                <button description="" id="14"/>
+                <button description="" id="15"/>
+                <button description="" id="16"/>
+                <button description="" id="17"/>
+                <button description="" id="18"/>
+                <button description="" id="19"/>
+                <button description="" id="20"/>
+                <button description="" id="21"/>
+                <button description="" id="22"/>
+                <button description="" id="23"/>
+                <button description="" id="24"/>
+                <button description="" id="25"/>
+                <button description="" id="26"/>
+                <button description="" id="27"/>
+                <button description="" id="28"/>
+                <button description="" id="29"/>
+                <button description="" id="30"/>
+                <button description="" id="31"/>
+                <button description="" id="32"/>
+            </mode>
+            <mode name="Operation">
+                <axis description="" id="1"/>
+                <axis description="" id="2"/>
+                <axis description="" id="3"/>
+                <axis description="" id="4"/>
+                <axis description="" id="5"/>
+                <axis description="" id="6"/>
+                <axis description="" id="7"/>
+                <axis description="" id="8"/>
+                <button description="" id="1"/>
+                <button description="" id="2"/>
+                <button description="" id="3"/>
+                <button description="" id="4"/>
+                <button description="" id="5"/>
+                <button description="" id="6"/>
+                <button description="" id="7"/>
+                <button description="" id="8"/>
+                <button description="" id="9"/>
+                <button description="" id="10"/>
+                <button description="" id="11"/>
+                <button description="" id="12"/>
+                <button description="" id="13"/>
+                <button description="" id="14"/>
+                <button description="" id="15"/>
+                <button description="" id="16"/>
+                <button description="" id="17"/>
+                <button description="" id="18"/>
+                <button description="" id="19"/>
+                <button description="" id="20"/>
+                <button description="" id="21"/>
+                <button description="" id="22"/>
+                <button description="" id="23"/>
+                <button description="" id="24"/>
+                <button description="" id="25"/>
+                <button description="" id="26"/>
+                <button description="" id="27"/>
+                <button description="" id="28"/>
+                <button description="" id="29"/>
+                <button description="" id="30"/>
+                <button description="" id="31"/>
+                <button description="" id="32"/>
+            </mode>
+        </vjoy-device>
+    </vjoy-devices>
+    <settings>
+        <default-delay>0.05</default-delay>
+    </settings>
+    <plugins/>
+</profile>
