@@ -1,0 +1,12 @@
+{
+    "name": "VSGT",
+    "device": 1,
+    "model": 5,
+    "type": "light",
+    "data": {
+        "type": 2,
+        "staticEffect": "[\"#FF0000\",\"#ffffff\",\"#ffffff\",\"#ffffff\",\"#ffffff\",\"#ffffff\",\"#ffffff\",\"#ffffff\",\"#ffffff\",\"#ffffff\",\"#ffffff\",\"#ffffff\",\"#ffffff\",\"#ffffff\",\"#ffffff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#ffffff\",\"#ffffff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#0080ff\",\"#ffcc00\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#408cff\",\"#ffcc00\",\"#20ff4c\",\"#ff0033\",\"#cc00ff\",\"#ffffff\",\"#ffffff\",\"#cc00ff\",\"#ff0033\",\"#ffffff\"]",
+        "dynamicEffect": "[\"#ff0055\",\"#ff0000\",\"#ff5500\",\"#ffaa00\",\"#ffff00\",\"#aaff00\",\"#55ff00\",\"#00ff00\",\"#00ff55\",\"#00ffaa\",\"#00ffff\",\"#00aaff\"]"
+    },
+    "crc": "e4e76794"
+}
