@@ -10,23 +10,19 @@ local function reset_cwd()
 	change_dir.fn(pwd)
 end
 
-vim.g.nvim_tree_icons = {
-	default = "",
-	folder = {
-		arrow_open = "▼",
-		arrow_closed = "▶",
-	},
-}
-
 tree.setup({
 	hijack_cursor = true,
 	auto_close = true,
-    update_cwd = true,
+	update_cwd = true,
 	update_focused_file = {
 		enable = true,
 	},
+	git = {
+		ignore = false,
+	},
 	view = {
-		auto_resize = true,
+		adaptive_size = true,
+		centralize_selection = true,
 		mappings = {
 			custom_only = false,
 			list = {
@@ -35,6 +31,23 @@ tree.setup({
 		},
 		number = true,
 		relativenumber = true,
+	},
+	renderer = {
+		icons = {
+			glyphs = {
+				default = "",
+				folder = {
+					arrow_open = "▼",
+					arrow_closed = "▶",
+				},
+				git = {
+					ignored = "",
+				},
+			},
+		},
+		indent_markers = {
+			enable = true,
+		},
 	},
 	actions = {
 		open_file = {
