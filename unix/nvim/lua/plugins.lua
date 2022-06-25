@@ -4,8 +4,6 @@ local indexing = require('indexing').plugin
 local code_completion = require("code-completion").plugin
 local comments = require("comments").plugin
 local lsp = require("lsp").plugin
-local start_screen = require("start-screen").plugin
---local projects = require("projects").plugin
 local fn = vim.fn
 
 -- Automatically install packer
@@ -59,5 +57,4 @@ return require("packer").startup(function(use)
 	code_completion(use)
 	comments(use)
 	lsp(use)
-	start_screen(use)
 end)
