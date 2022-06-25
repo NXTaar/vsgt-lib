@@ -10,6 +10,20 @@ local keymap = vim.api.nvim_set_keymap
 
 local opts = { noremap = true, silent = true }
 
+local function cmd_cb(cmd)
+	return function()
+		vim.cmd(cmd)
+	end
+end
+
+local function leader_keymap(config)
+	local mode = config.mode or 'n'
+	local options = config.cmd and { noremap = true, callback = cmd_cb(config.cmd) }
+		or { noremap = true, callback = config.callbackj }
+
+	keymap(mode, '<leader>' .. config.key, '', options)
+end
+
 -- Split-screen navigation
 keymap('n', '<C-h>', '<C-w>h', opts)
 keymap('n', '<C-j>', '<C-w>j', opts)
@@ -26,22 +40,17 @@ keymap('i', '<C-s>', '<Esc>:w<CR>a', opts)
 keymap('n', '<leader>wf', '>:Format|w<CR>', opts)
 
 -- Buffers
-keymap('n', '<leader>q', ':Bdelete<CR>', opts)
-keymap('n', '<leader>Q', ':bd<CR>', opts)
 keymap('n', '<leader>bo', ':%bd | e#<CR>', opts)
+leader_keymap({ key = 'o', cmd = 'only' })
 
 -- Version control
-keymap('n', '<leader>gcm', '', { noremap = true, callback = git.checkout_master })
-keymap('n', '<leader>gtr', '', { noremap = true, callback = git.open_tree })
+leader_keymap({ key = 'gcm', callback = git.checkout_master })
+leader_keymap({ key = 'gtr', callback = git.open_tree })
 keymap('n', '<leader>gp', ':Git pull -r', opts)
 keymap('n', '<leader>gf', ':Git fetch|Git remote prune origin<CR>', opts)
 keymap('n', '<leader>gbd', ':Git branch -D ', opts)
 keymap('n', '<leader>gg', ':Git<CR><C-w>5-', opts)
 keymap('n', '<leader>gbl', ':Git blame<CR>', opts)
-
--- Move text up and down
-keymap('n', '<A-j>', '<Esc>:m .+1<CR>==gi', opts)
-keymap('n', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
 
 -- Clean up SVG
 keymap('n', '<leader>svg', ':silent !svgo --config ~/.svgo/config.js %<CR>', opts)
