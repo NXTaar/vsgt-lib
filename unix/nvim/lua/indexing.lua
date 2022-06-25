@@ -61,6 +61,7 @@ end
 exports.keymaps = {
 	search_file = ":lua require('indexing').search_file()<CR>",
 	search_file_all = ":Telescope find_files<CR>",
+    search_string = ":Telescope live_grep<CR>",
 	buffer = ":lua require('indexing').toggle_buffer()<CR>",
     show_registers = ":Telescope neoclip<CR>",
     list_git_branches = ":Telescope git_branches theme=ivy previewer=false initial_mode=normal<CR>",
