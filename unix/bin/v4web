@@ -1,0 +1,27 @@
+#!/bin/bash
+
+INPUT="$1"
+OUTPUT="${2:-"./output"}"
+
+if [[ "$INPUT" == "" ]]; then
+    echo "No input provided"
+    exit 2
+fi
+
+echo 'Encoding file '$INPUT' to mp4 (using profile)...'
+ffmpeg -an -i $INPUT -vcodec libx264 -pix_fmt yuv420p -profile:v baseline -level 3 $OUTPUT".mp4" &&
+echo 'mp4: ✅'
+
+echo 'Encoding file '$INPUT' to webm (vp9)...'
+ffmpeg -i $INPUT -c:v libvpx-vp9 -pass 1 -b:v 1000K -threads 1 -speed 4 \
+  -tile-columns 0 -frame-parallel 0 -auto-alt-ref 1 -lag-in-frames 25 \
+  -g 9999 -aq-mode 0 -an -f webm /dev/null &&
+
+ffmpeg -i $INPUT -c:v libvpx-vp9 -pass 2 -b:v 1000K -threads 1 -speed 0 \
+  -tile-columns 0 -frame-parallel 0 -auto-alt-ref 1 -lag-in-frames 25 \
+  -g 9999 -aq-mode 0 -c:a libopus -b:a 64k -f webm $OUTPUT".webm" &&
+
+rm ffmpeg2pass-0.log &&
+echo 'webm: ✅'
+
+exit 0
