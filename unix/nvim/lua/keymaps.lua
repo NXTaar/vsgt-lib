@@ -19,9 +19,14 @@ end
 local function leader_keymap(config)
 	local mode = config.mode or 'n'
 	local options = config.cmd and { noremap = true, callback = cmd_cb(config.cmd) }
-		or { noremap = true, callback = config.callbackj }
+		or { noremap = true, callback = config.callback }
 
 	keymap(mode, '<leader>' .. config.key, '', options)
+end
+
+local function format_and_save()
+    vim.cmd('Format')
+    vim.cmd('w')
 end
 
 -- Split-screen navigation
@@ -37,7 +42,7 @@ vim.g.maplocalleader = ' '
 
 -- File save
 keymap('i', '<C-s>', '<Esc>:w<CR>a', opts)
-keymap('n', '<leader>wf', '>:Format|w<CR>', opts)
+leader_keymap({ key = 'l', callback = format_and_save })
 
 -- Buffers
 keymap('n', '<leader>bo', ':%bd | e#<CR>', opts)
@@ -58,6 +63,7 @@ keymap('n', '<leader>svg', ':silent !svgo --config ~/.svgo/config.js %<CR>', opt
 -- Quick lists
 keymap('n', '<leader>cl', ':ccl<CR>', opts)
 
+keymap('n', '<leader>a', '[[V]]', opts)
 -- Insert --
 -- Press jj (or Russian "оо") fast to enter
 keymap('i', 'jj', '<ESC>l', opts)

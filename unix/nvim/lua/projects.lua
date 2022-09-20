@@ -49,9 +49,7 @@ local function load_workspace_session(ws)
 	end)
 end
 
-local function init(project_config, sessions, workspaces, telescope)
-	project_config.setup()
-
+local function init(sessions, workspaces, telescope)
 	workspaces.setup({
 		path = workspaces_root,
 		hooks = {
@@ -82,8 +80,8 @@ local function init(project_config, sessions, workspaces, telescope)
 end
 
 require('dependencies').module(
-	{ 'nvim-projectconfig', 'sessions', 'workspaces', 'telescope' },
-	{ 'windwp/nvim-projectconfig', 'natecraddock/workspaces.nvim', 'natecraddock/sessions.nvim' },
+	{ 'sessions', 'workspaces', 'telescope' },
+	{ 'natecraddock/workspaces.nvim', 'natecraddock/sessions.nvim' },
 	init
 )
 

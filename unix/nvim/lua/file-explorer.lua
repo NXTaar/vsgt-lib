@@ -3,13 +3,6 @@ if not status_ok then
 	return
 end
 
-local change_dir = require("nvim-tree.actions.change-dir")
-local pwd = vim.fn.getcwd()
-
-local function reset_cwd()
-	change_dir.fn(pwd)
-end
-
 tree.setup({
 	hijack_cursor = true,
 	auto_close = true,
@@ -23,12 +16,6 @@ tree.setup({
 	view = {
 		adaptive_size = true,
 		centralize_selection = true,
-		mappings = {
-			custom_only = false,
-			list = {
-				{ key = "_", action = "reset_cwd", action_cb = reset_cwd },
-			},
-		},
 		number = true,
 		relativenumber = true,
 	},

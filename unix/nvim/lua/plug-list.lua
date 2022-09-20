@@ -2,17 +2,17 @@ return {
 	'wbthomason/packer.nvim',
 	'stevearc/dressing.nvim',
 	'windwp/nvim-autopairs',
+	'ap/vim-css-color',
 
 	-- Buffer preserver
 	'moll/vim-bbye',
 
 	-- Git integration
 	'tpope/vim-fugitive',
+	'rbong/vim-flog',
 	'tpope/vim-unimpaired',
 	'tpope/vim-dispatch',
 	'shumphrey/fugitive-gitlab.vim',
-	'rbong/vim-flog',
-	'junegunn/gv.vim',
 
 	-- Color theme
 	'shaunsingh/nord.nvim',

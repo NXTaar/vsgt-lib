@@ -1,10 +1,10 @@
 local exports = {}
 
-exports.servers = { "tsserver", "sumneko_lua", "jsonls", "eslint", "cssls", "cssmodules_ls", "html" }
+exports.servers = { 'tsserver', 'yamlls', 'sumneko_lua', 'jsonls', 'eslint', 'cssls', 'cssmodules_ls', 'html' }
 
 exports.additional_opts = {
-	jsonls = require("lsp.settings.jsonls"),
-	sumneko_lua = require("lsp.settings.sumneko_lua"),
+	jsonls = require('lsp.settings.jsonls'),
+	sumneko_lua = require('lsp.settings.sumneko_lua'),
 }
 
 exports.commands = {
@@ -20,10 +20,10 @@ exports.commands = {
 }
 
 exports.icons = {
-	{ name = "DiagnosticSignError", text = "" },
-	{ name = "DiagnosticSignWarn", text = "" },
-	{ name = "DiagnosticSignHint", text = "" },
-	{ name = "DiagnosticSignInfo", text = "" },
+	{ name = 'DiagnosticSignError', text = '' },
+	{ name = 'DiagnosticSignWarn', text = '' },
+	{ name = 'DiagnosticSignHint', text = '' },
+	{ name = 'DiagnosticSignInfo', text = '' },
 }
 
 exports.diagnostic_opts = {
@@ -38,11 +38,11 @@ exports.diagnostic_opts = {
 	severity_sort = true,
 	float = {
 		focusable = false,
-		style = "minimal",
-		border = "rounded",
-		source = "always",
-		header = "",
-		prefix = "",
+		style = 'minimal',
+		border = 'rounded',
+		source = 'always',
+		header = '',
+		prefix = '',
 	},
 }
 

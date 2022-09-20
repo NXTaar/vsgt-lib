@@ -2,6 +2,7 @@ local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
 local opt = vim.opt -- to opt.options
 local HOME = os.getenv("HOME")
 
+vim.o.guifont = "SauceCodePro Nerd Font Mono"
 vim.o.termguicolors = true
 cmd[[set hidden]]
 cmd[[colorscheme nord]]
@@ -26,7 +27,11 @@ opt.swapfile = false
 opt.backup = false
 opt.undofile = true
 opt.undodir = HOME .. "/.nvim/undodir"
--- Comment
+
+-- Folding
+opt.foldlevel = 20
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Search
 opt.incsearch = true
