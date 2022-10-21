@@ -1,5 +1,5 @@
 local assign_keymaps = require("nxtaar.lsp.keymaps").assign
-local attach_formating = require("lsp-format").on_attach
+local attach_formating = require("nxtaar.lsp.formatting").attach
 local attach_highlighting = require("nxtaar.lsp.highlighting")
 
 return function(client, bufnr)

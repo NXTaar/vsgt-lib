@@ -4,8 +4,8 @@ local capabilities = require("nxtaar.lsp.capabilities")
 local exports = {}
 
 local server_functions = {
-    on_attach = on_attach,
-    capabilities = capabilities,
+	on_attach = on_attach,
+	capabilities = capabilities,
 }
 
 local settings = {
@@ -19,6 +19,7 @@ local settings = {
 	cssls = {},
 	cssmodules_ls = {},
 	html = {},
+	eslint = {},
 	sumneko_lua = {
 		settings = {
 			Lua = {
@@ -48,7 +49,7 @@ local settings = {
 			},
 		},
 	},
-	tsserver = { disable_formatting = true },
+	tsserver = {},
 	yamlls = {
 		schemastore = {
 			enable = true,
