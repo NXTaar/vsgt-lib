@@ -6,6 +6,7 @@ list=(
     giflib
     jpeg
     libpng
+    libgphoto2
     librsvg
     luarocks
     neovim

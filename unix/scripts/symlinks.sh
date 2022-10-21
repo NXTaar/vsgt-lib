@@ -20,3 +20,7 @@ echo terminal theme symlink ✅
 mkdir -p ~/.config
 ln -s $(get_abs_filename "../nvim") ~/.config/nvim
 echo Neovim configuration folder symlink ✅
+
+ln -s $(get_abs_filename "../zsh/.tmux.conf") ~/.tmux.conf
+echo tmux config symlink ✅
+
