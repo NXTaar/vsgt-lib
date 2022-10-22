@@ -25,8 +25,8 @@ local function leader_keymap(config)
 end
 
 local function format_and_save()
-    vim.cmd('Format')
-    vim.cmd('w')
+	vim.cmd('Format')
+	vim.cmd('w')
 end
 
 -- Split-screen navigation

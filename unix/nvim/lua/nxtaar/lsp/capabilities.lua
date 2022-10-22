@@ -1,4 +1,4 @@
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -10,9 +10,9 @@ capabilities.textDocument.foldingRange = {
 
 capabilities.textDocument.completion.completionItem.resolveSupport = {
 	properties = {
-		"documentation",
-		"detail",
-		"additionalTextEdits",
+		'documentation',
+		'detail',
+		'additionalTextEdits',
 	},
 }
 

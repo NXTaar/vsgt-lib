@@ -1,4 +1,4 @@
-local tree = require("nvim-tree")
+local tree = require('nvim-tree')
 
 tree.setup({
 	hijack_cursor = true,
@@ -18,13 +18,13 @@ tree.setup({
 	renderer = {
 		icons = {
 			glyphs = {
-				default = "",
+				default = '',
 				folder = {
-					arrow_open = "▼",
-					arrow_closed = "▶",
+					arrow_open = '▼',
+					arrow_closed = '▶',
 				},
 				git = {
-					ignored = "",
+					ignored = '',
 				},
 			},
 		},

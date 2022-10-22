@@ -33,7 +33,7 @@ function exports.assign(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	for _, keymap in pairs(mapping) do
 		if (keymap.action ~= exports.actions.format) or client.server_capabilities.documentFormattingProvider then
-			vim.keymap.set("n", keymap.key, keymap.action, bufopts)
+			vim.keymap.set('n', keymap.key, keymap.action, bufopts)
 		end
 	end
 end

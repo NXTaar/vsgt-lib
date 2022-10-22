@@ -1,14 +1,14 @@
-local has_illuminate_highlighter, illuminate = pcall(require, "illuminate")
+local has_illuminate_highlighter, illuminate = pcall(require, 'illuminate')
 local api = vim.api
 
 illuminate.configure({
 	delay = 800,
 	filetypes_denylist = {
-		"alpha",
-		"fugitive",
-		"NvimTree",
+		'alpha',
+		'fugitive',
+		'NvimTree',
 	},
-	modes_allowlist = { "n" },
+	modes_allowlist = { 'n' },
 })
 
 vim.cmd([[hi def IlluminatedWordText cterm=reverse guifg=#d8dee9 guibg=#3b4252]])
@@ -20,17 +20,17 @@ return function(client, bufnr)
 		return
 	end
 
-	local lsp_highlight_grp = api.nvim_create_augroup("LspDocumentHighlight", { clear = true })
+	local lsp_highlight_grp = api.nvim_create_augroup('LspDocumentHighlight', { clear = true })
 
-	api.nvim_create_autocmd("CursorHold", {
+	api.nvim_create_autocmd('CursorHold', {
 		callback = function()
 			vim.schedule(vim.lsp.buf.document_highlight)
 		end,
 		group = lsp_highlight_grp,
 		buffer = bufnr,
 	})
-	
-	api.nvim_create_autocmd("CursorMoved", {
+
+	api.nvim_create_autocmd('CursorMoved', {
 		callback = function()
 			vim.schedule(vim.lsp.buf.clear_references)
 		end,

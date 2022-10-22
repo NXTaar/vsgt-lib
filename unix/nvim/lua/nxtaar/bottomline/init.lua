@@ -1,15 +1,15 @@
-local lualine = require("lualine")
-local setInterval = require("nxtaar.utils.timers").setInterval
-local setTimeout = require("nxtaar.utils.timers").setTimeout
-local clearInterval = require("nxtaar.utils.timers").clearInterval
-local animations = require("nxtaar.bottomline.animations")
+local lualine = require('lualine')
+local setInterval = require('nxtaar.utils.timers').setInterval
+local setTimeout = require('nxtaar.utils.timers').setTimeout
+local clearInterval = require('nxtaar.utils.timers').clearInterval
+local animations = require('nxtaar.bottomline.animations')
 
 local exports = {}
 
 local function update_vsc_value(value)
 	vim.g.lualine_vsc_loader = value
 	vim.schedule(function()
-		vim.api.nvim_command("redrawtabline")
+		vim.api.nvim_command('redrawtabline')
 	end)
 end
 
@@ -21,7 +21,7 @@ function exports.loader(message, animation)
 	local timer = setInterval(function()
 		currentFrame = currentFrame % framesCount + 1
 
-		update_vsc_value(animation.frames[currentFrame] .. " " .. message)
+		update_vsc_value(animation.frames[currentFrame] .. ' ' .. message)
 	end, animation.interval)
 
 	return function()
@@ -47,10 +47,10 @@ end
 
 lualine.setup({
 	options = {
-		theme = "nord",
+		theme = 'nord',
 	},
 	sections = {
-		lualine_b = { "branch", "g:lualine_vsc_loader", "diff", "diagnostics" },
+		lualine_b = { 'branch', 'g:lualine_vsc_loader', 'diff', 'diagnostics' },
 	},
 })
 

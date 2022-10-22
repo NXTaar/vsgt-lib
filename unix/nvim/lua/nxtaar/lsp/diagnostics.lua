@@ -1,14 +1,14 @@
 local icons = {
-	{ name = "DiagnosticSignError", text = "" },
-	{ name = "DiagnosticSignWarn", text = "" },
-	{ name = "DiagnosticSignHint", text = "" },
-	{ name = "DiagnosticSignInfo", text = "" },
+	{ name = 'DiagnosticSignError', text = '' },
+	{ name = 'DiagnosticSignWarn', text = '' },
+	{ name = 'DiagnosticSignHint', text = '' },
+	{ name = 'DiagnosticSignInfo', text = '' },
 }
 
 local float_config = {
 	focusable = true,
-	style = "minimal",
-	border = "rounded",
+	style = 'minimal',
+	border = 'rounded',
 }
 
 local diagnostic_config = {
@@ -23,11 +23,11 @@ local diagnostic_config = {
 	severity_sort = true,
 	float = {
 		focusable = true,
-		style = "minimal",
-		border = "rounded",
-		source = "always",
-		header = "",
-		prefix = "",
+		style = 'minimal',
+		border = 'rounded',
+		source = 'always',
+		header = '',
+		prefix = '',
 	},
 }
 
@@ -35,11 +35,11 @@ for _, icon in ipairs(icons) do
 	vim.fn.sign_define(icon.name, { texthl = icon.name, text = icon.text, numhl = icon.name })
 end
 
- -- Diagnostic configuration
- vim.diagnostic.config(diagnostic_config)
+-- Diagnostic configuration
+vim.diagnostic.config(diagnostic_config)
 
- -- Hover configuration
- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, float_config)
+-- Hover configuration
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, float_config)
 
- -- Signature help configuration
- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, float_config)
+-- Signature help configuration
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, float_config)

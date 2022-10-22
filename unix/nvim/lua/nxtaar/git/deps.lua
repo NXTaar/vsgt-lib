@@ -1,7 +1,7 @@
 return {
-	"tpope/vim-fugitive",
-	{ 
-        "rbong/vim-flog", 
-        branch = "v2" 
-    },
+	'tpope/vim-fugitive',
+	{
+		'rbong/vim-flog',
+		branch = 'v2',
+	},
 }

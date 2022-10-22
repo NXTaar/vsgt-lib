@@ -1,4 +1,4 @@
 return {
-    'natecraddock/workspaces.nvim', 
-    'natecraddock/sessions.nvim'
+	'natecraddock/workspaces.nvim',
+	'natecraddock/sessions.nvim',
 }

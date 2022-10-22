@@ -1,3 +1,3 @@
-local pkg = require("package-info")
+local pkg = require('package-info')
 
 pkg.setup()

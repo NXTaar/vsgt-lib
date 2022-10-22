@@ -1,6 +1,6 @@
 return {
-    {
-        'akinsho/toggleterm.nvim',
-        tag = '*',
-    },
+	{
+		'akinsho/toggleterm.nvim',
+		tag = '*',
+	},
 }
