@@ -11,22 +11,22 @@ local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 local function cmd_cb(cmd)
-	return function()
-		vim.cmd(cmd)
-	end
+    return function()
+        vim.cmd(cmd)
+    end
 end
 
 local function leader_keymap(config)
-	local mode = config.mode or 'n'
-	local options = config.cmd and { noremap = true, callback = cmd_cb(config.cmd) }
-		or { noremap = true, callback = config.callback }
+    local mode = config.mode or 'n'
+    local options = config.cmd and { noremap = true, callback = cmd_cb(config.cmd) }
+        or { noremap = true, callback = config.callback }
 
-	keymap(mode, '<leader>' .. config.key, '', options)
+    keymap(mode, '<leader>' .. config.key, '', options)
 end
 
 local function format_and_save()
-	vim.cmd('Format')
-	vim.cmd('w')
+    vim.cmd('Format')
+    vim.cmd('w')
 end
 
 -- Split-screen navigation
@@ -79,6 +79,9 @@ keymap('n', '<leader>bl', indexing_actions.buffer, opts)
 keymap('n', '<leader>lg', indexing_actions.search_string, opts)
 keymap('n', '<leader>p', indexing_actions.show_registers, opts)
 keymap('n', '<leader>gcb', indexing_actions.list_git_branches, opts)
+
+-- Undo
+leader_keymap({ key = 'u', cmd = 'UndotreeToggle' })
 
 -- Workspaces
 keymap('n', '<leader>ws', projects_actions.show_workspaces, opts)
