@@ -1,33 +1,66 @@
-local mason = require('mason')
-local lspconfig = require('lspconfig')
-local mason_lsp_config = require('mason-lspconfig')
-local mason_tool_installer = require('mason-tool-installer')
-local get_server_settings = require('nxtaar.lsp.settings').get_server_settings
+local lsp = require('lsp-zero')
+local null_ls = require('null-ls')
+local typescript = require('typescript')
+
+local attach_formating = require('lsp-format').on_attach
+local settings = require('nxtaar.lsp.settings').settings
 local language_servers = require('nxtaar.lsp.settings').language_servers
-local attach_custom_handlers = require('nxtaar.lsp.custom-handlers')
+local assign_keymaps = require('nxtaar.lsp.keymaps').assign_keymaps
 
-require('nxtaar.lsp.diagnostics')
+local null_ls_formatting = null_ls.builtins.formatting
+local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
-mason.setup({
-	ui = {
-		icons = {
-			package_installed = '✓',
-		},
+lsp.preset('recommended')
+
+for _, server in ipairs(language_servers) do
+	if vim.tbl_count(settings[server]) > 0 then
+		lsp.configure(server, settings[server])
+	end
+end
+
+lsp.ensure_installed(language_servers)
+
+lsp.on_attach(function(client, buffer_number)
+	-- Enable completion triggered by <C-X><C-O>
+	-- See `:help omnifunc` and `:help ins-completion` for more information.
+	vim.api.nvim_buf_set_option(buffer_number, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+	-- Use LSP as the handler for formatexpr.
+	-- See `:help formatexpr` for more information.
+	vim.api.nvim_buf_set_option(buffer_number, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
+
+	assign_keymaps(client, buffer_number)
+
+	attach_formating(client)
+
+	if client.server_capabilities.definitionProvider then
+		vim.api.nvim_buf_set_option(buffer_number, 'tagfunc', 'v:lua.vim.lsp.tagfunc')
+	end
+end)
+
+lsp.setup()
+
+null_ls.setup({
+	sources = {
+		null_ls_formatting.stylua,
+		null_ls_formatting.prettierd.with({
+			filetypes = { 'yaml', 'markdown', 'css', 'graphql' },
+		}),
 	},
-})
-
-mason_lsp_config.setup({
-	ensure_installed = language_servers,
-})
-
-mason_tool_installer.setup({
-	ensure_installed = { 'stylua', 'prettierd' },
-	auto_update = false,
-	run_on_start = true,
-})
-
-mason_lsp_config.setup_handlers(attach_custom_handlers({
-	function(server_name)
-		lspconfig[server_name].setup(get_server_settings(server_name))
+	on_attach = function(client, bufnr)
+		if client.supports_method('textDocument/formatting') then
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			vim.api.nvim_create_autocmd('BufWritePre', {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					vim.lsp.buf.format({ bufnr = bufnr })
+				end,
+			})
+		end
 	end,
-}))
+})
+
+typescript.setup({
+	server = settings.tsserver,
+})

@@ -1,14 +1,10 @@
 local json_schemas = require('schemastore').json.schemas()
-local on_attach = require('nxtaar.lsp.on-attach')
-local capabilities = require('nxtaar.lsp.capabilities')
+local has_eslint_config = require('nxtaar.lsp.utils').has_eslint_config
+local check_for_custom_config = require('nxtaar.lsp.utils').check_for_custom_config
+
 local exports = {}
 
-local server_functions = {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
-
-local settings = {
+exports.settings = {
 	jsonls = {
 		settings = {
 			json = {
@@ -19,7 +15,21 @@ local settings = {
 	cssls = {},
 	cssmodules_ls = {},
 	html = {},
-	eslint = {},
+	eslint = {
+		on_attach = function(client, bufnr)
+			local path = vim.api.nvim_buf_get_name(bufnr)
+			local custom_config = check_for_custom_config(path)
+
+			if custom_config then
+				client.config.settings.options = {
+					configFile = custom_config,
+				}
+			end
+
+			client.server_capabilities.documentFormattingProvider = true
+			client.server_capabilities.documentRangeFormattingProvider = true
+		end,
+	},
 	sumneko_lua = {
 		settings = {
 			Lua = {
@@ -49,7 +59,16 @@ local settings = {
 			},
 		},
 	},
-	tsserver = {},
+	tsserver = {
+		on_attach = function(client, bufnr)
+			if not has_eslint_config(bufnr) then
+				return
+			end
+
+			client.server_capabilities.documentFormattingProvider = false
+			client.server_capabilities.documentRangeFormattingProvider = false
+		end,
+	},
 	yamlls = {
 		schemastore = {
 			enable = true,
@@ -65,10 +84,8 @@ local settings = {
 	},
 }
 
-exports.language_servers = vim.tbl_keys(settings)
-
-function exports.get_server_settings(server_name)
-	return vim.tbl_deep_extend('force', server_functions, settings[server_name] or {})
-end
+exports.language_servers = vim.tbl_filter(function(server)
+	return server ~= 'tsserver'
+end, vim.tbl_keys(exports.settings))
 
 return exports
