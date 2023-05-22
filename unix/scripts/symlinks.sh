@@ -24,3 +24,5 @@ echo Neovim configuration folder symlink ✅
 ln -s $(get_abs_filename "../zsh/.tmux.conf") ~/.tmux.conf
 echo tmux config symlink ✅
 
+ln -s $(get_abs_filename "../zsh/svgo.config.js") ~/.svgoconfig
+echo svgo config symlink ✅
