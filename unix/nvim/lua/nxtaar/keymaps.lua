@@ -53,12 +53,11 @@ leader_keymap({ key = 'gcm', callback = git.checkout_master })
 leader_keymap({ key = 'gtr', callback = git.open_tree })
 keymap('n', '<leader>gp', ':Git pull -r', opts)
 keymap('n', '<leader>gf', ':Git fetch|Git remote prune origin<CR>', opts)
-keymap('n', '<leader>gbd', ':Git branch -D ', opts)
 keymap('n', '<leader>gg', ':Git<CR><C-w>5-', opts)
 keymap('n', '<leader>gbl', ':Git blame<CR>', opts)
 
 -- Clean up SVG
-keymap('n', '<leader>svg', ':silent !svgo --config ~/.svgo/config.js %<CR>', opts)
+keymap('n', '<leader>svg', ':silent !svgo --config ~/.svgoconfig %<CR>', opts)
 
 -- Quick lists
 keymap('n', '<leader>cl', ':ccl<CR>', opts)
@@ -88,6 +87,9 @@ keymap('n', '<leader>ws', projects_actions.show_workspaces, opts)
 
 -- Sourcing files
 keymap('n', '<leader>sc', ":source % | echo 'File '.expand('%').' sourced successfully'<CR>", opts)
+
+-- Typescript
+leader_keymap({ key = 'tsi', cmd = 'TypescriptAddMissingImports' })
 
 -- Code completion
 code_completion_keymap('<C-k>', code_completion_actions.select_prev_item)
