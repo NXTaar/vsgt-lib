@@ -9,6 +9,7 @@ list=(
     libgphoto2
     librsvg
     luarocks
+    ffmpeg
     neovim
     imagemagick
     nvm
