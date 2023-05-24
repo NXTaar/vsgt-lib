@@ -1,41 +1,42 @@
-local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
-local opt = vim.opt -- to opt.options
-local HOME = os.getenv('HOME')
+local cmd = vim.cmd
+local opt = vim.opt
+local g = vim.g
 
+local CACHE_PATH  = vim.fn.stdpath("cache")
+
+-- UI Font
 vim.o.guifont = 'SauceCodePro Nerd Font Mono'
-vim.o.termguicolors = true
-cmd([[set hidden]])
-cmd([[colorscheme nord]])
 
-cmd('language en_US')
+-- preserve closed buffers
+opt.hidden = true
+
+-- Color settings
+opt.termguicolors = true
+opt.background = "dark"
 
 -- Show line numbers
 opt.number = true
 opt.relativenumber = true
 opt.signcolumn = 'yes'
 
--- Intendation and tabs
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.shiftwidth = 4
-opt.expandtab = true
-opt.smarttab = true
-opt.wrap = false
+-- Space as leader key
+g.mapleader = ' '
+g.maplocalleader = ' '
 
 -- Backup settings
 opt.swapfile = false
 opt.backup = false
 opt.undofile = true
-opt.undodir = HOME .. '/.nvim/undodir'
+opt.undodir = CACHE_PATH .. '/undo'
+
+-- Search
+opt.incsearch = true
+opt.hlsearch = true
 
 -- Folding
 opt.foldlevel = 20
 opt.foldmethod = 'expr'
 opt.foldexpr = 'nvim_treesitter#foldexpr()'
-
--- Search
-opt.incsearch = true
-opt.hlsearch = false
 
 -- Scroll
 opt.scrolloff = 8
@@ -43,5 +44,13 @@ opt.scrolloff = 8
 -- Encoding
 opt.fileencoding = 'utf-8'
 
--- Keyword size definition
-cmd([[set iskeyword+=-]])
+-- Consider dashes as a part of a word
+cmd('set iskeyword+=-')
+-- Consider dashes as not a part of a word
+cmd("set iskeyword-=:")
+
+-- Substitude highlights and changes on the fly
+cmd("set inccommand=split")
+
+-- UI language
+cmd('language en_US')

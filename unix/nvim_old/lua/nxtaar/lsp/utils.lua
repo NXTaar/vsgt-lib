@@ -1,9 +1,12 @@
-local tbl_find = require("nxtaar.utils.table").tbl_find
+local tbl_find = require('nxtaar.utils.table').tbl_find
 local exports = {}
 
 local custom_eslint_configs = {
     ['tochka/reports'] = './.eslintrc.prettier.json',
-    ['tochka/tar%-core'] = './.eslintrc.prettier.json'
+    ['tochka/tar%-core'] = './.eslintrc.prettier.json',
+    ['tochka/tar%-demand'] = './.eslintrc.prettier.json',
+    ['tochka/tax%-patents'] = './.eslintrc.prettier.json',
+    ['tochka/tax%-auto%-reports'] = './.eslintrc.prettier.json',
 }
 
 local custom_eslint_config_patterns = vim.tbl_keys(custom_eslint_configs)
