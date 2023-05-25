@@ -36,6 +36,7 @@ opt.hlsearch = true
 -- Folding
 opt.foldlevel = 20
 opt.foldmethod = 'expr'
+opt.foldenable = false
 opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- Scroll
