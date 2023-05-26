@@ -1,9 +1,10 @@
 local lsp = require('lsp-zero')
 local json_schemas = require('schemastore').json.schemas()
+local register_keymap_action = require('nxtaar.keymaps.utils').register_keymap_action
 
 local M = {}
 
-M.settings = {
+local settings = {
     jsonls = {
         autoformat_files = { 'json' },
         lsp = {
@@ -13,6 +14,16 @@ M.settings = {
                     schemas = json_schemas,
                 },
             },
+        }
+    },
+    tsserver = {
+        lsp = {
+            server = {
+                on_attach = function()
+                    register_keymap_action('typescript.add-missing-imports', '<cmd>TypescriptAddMissingImports<cr>')
+                    register_keymap_action('typescript.remove-unused-imports', '<cmd>TypescriptRemoveUnused<cr>')
+                end
+            }
         }
     },
     yamlls = {
@@ -57,11 +68,9 @@ M.formatting_settings = {
     },
 }
 
-M.language_servers = vim.tbl_filter(function(server)
-    return server ~= 'tsserver'
-end, vim.tbl_keys(M.settings))
+M.language_servers = vim.tbl_keys(settings)
 
-for server, config in pairs(M.settings) do
+for server, config in pairs(settings) do
     local files_list = config.autoformat_files
 
     if (files_list) then
@@ -72,10 +81,18 @@ end
 
 function M.apply_server_settings(cb)
     for _, server in ipairs(M.language_servers) do
-        if M.settings[server].lsp ~= nil then
-            cb(server, M.settings[server].lsp)
+        if settings[server].lsp ~= nil then
+            cb(server, settings[server].lsp)
         end
     end
+end
+
+function M.get_lsp_config(server)
+    if settings[server] == nil or settings[server].lsp == nil then
+        print('No LSP config for server: ' .. server)
+    end
+
+    return settings[server].lsp
 end
 
 return M

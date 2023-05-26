@@ -1,15 +1,17 @@
 local cmp = require('cmp')
 local lsp_zero = require('lsp-zero')
 local neovim_lua_hints = require('neodev')
+local typescript = require('typescript')
 local lsp_settings = require('nxtaar.lsp.settings')
 local keymap = require('nxtaar.keymaps.utils')
 local action = require('nxtaar.actions').action
 
 local get_keymap_config_for_action = keymap.get_keymap_config_for_action
 local register_keymap_action = keymap.register_keymap_action
+local apply_server_settings = lsp_settings.apply_server_settings
 local formatting_settings = lsp_settings.formatting_settings
 local language_servers = lsp_settings.language_servers
-local apply_server_settings = lsp_settings.apply_server_settings
+local get_lsp_config = lsp_settings.get_lsp_config
 
 neovim_lua_hints.setup {}
 
@@ -23,9 +25,9 @@ local lsp = lsp_zero.preset({
 
 lsp.ensure_installed(language_servers)
 
--- тайпскрипт
-
 lsp.format_on_save(formatting_settings)
+
+lsp.skip_server_setup({ 'tsserver' })
 
 apply_server_settings(function(server, opts)
     lsp.configure(server, opts)
@@ -72,3 +74,5 @@ cmp.setup({
         }
     },
 })
+
+typescript.setup(get_lsp_config('tsserver'))

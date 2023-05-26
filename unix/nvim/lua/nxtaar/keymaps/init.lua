@@ -28,12 +28,15 @@ keymap({ key = 'go', action = 'lsp.go-to-type-definition', silent = false, remap
 keymap({ key = 'gr', action = 'lsp.go-to-references', silent = false, remap = false, buffer = true })
 keymap({ key = 'gs', action = 'lsp.signature-help', silent = false, remap = false, buffer = true })
 keymap({ l_key = 'rn', action = 'lsp.rename', silent = false, remap = false, buffer = true })
-keymap({ key = '<F3>', action = 'lsp.format-async', silent = false, remap = false, buffer = true, mode={'n', 'x'} })
+keymap({ key = '<F3>', action = 'lsp.format-async', silent = false, remap = false, buffer = true, mode = { 'n', 'x' } })
 keymap({ l_key = 'x', action = 'lsp.code-action', silent = false, remap = false, buffer = true })
 keymap({ l_key = 'i', action = 'lsp.show-info', silent = false, remap = false, buffer = true })
 keymap({ key = '[d', action = 'lsp.diagnostic-go-to-prev', silent = false, remap = false, buffer = true })
 keymap({ key = ']d', action = 'lsp.diagnostic-go-to-next', silent = false, remap = false, buffer = true })
 
+-- Typescript
+keymap({ l_key = 'ti', action = 'typescript.add-missing-imports', buffer = true })
+keymap({ l_key = 'tu', action = 'typescript.remove-unused-imports', buffer = true })
+
 -- Code completion
 keymap({ key = '<CR>', action = 'completion.select' })
-

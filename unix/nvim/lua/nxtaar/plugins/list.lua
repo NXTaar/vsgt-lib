@@ -8,6 +8,7 @@ return {
     'rbong/vim-flog',
     'tpope/vim-unimpaired',
     'folke/neodev.nvim',
+    'b0o/schemastore.nvim',
     {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
     },
@@ -20,16 +21,20 @@ return {
         branch = 'v2.x',
         dependencies = {
             -- LSP Support
-            { 'neovim/nvim-lspconfig' }, -- Required
+            { 'neovim/nvim-lspconfig' },
+
+            -- Language server manager
             {
-            -- Optional
+            
                 'williamboman/mason.nvim',
                 build = function()
                     pcall(vim.cmd, 'MasonUpdate')
                 end,
             },
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-            {'b0o/schemastore.nvim'},
+            { 'williamboman/mason-lspconfig.nvim' },
+
+            -- Improved Typescript support
+            {'jose-elias-alvarez/typescript.nvim'},
 
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' }, -- Required
