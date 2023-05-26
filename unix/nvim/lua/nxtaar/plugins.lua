@@ -1,14 +1,30 @@
 return {
     'mbbill/undotree',
-    'nvim-tree/nvim-web-devicons',
     'stevearc/oil.nvim',
+
+    -- Colorscheme
     'sainnhe/everforest',
-    'nvim-lua/plenary.nvim',
+
+    -- Git
     'tpope/vim-fugitive',
     'rbong/vim-flog',
+
     'tpope/vim-unimpaired',
-    'folke/neodev.nvim',
+
     'b0o/schemastore.nvim',
+    -- Comments
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    'terrortylor/nvim-comment',
+
+    -- Bottomline
+    'nvim-lualine/lualine.nvim',
+
+    -- Internal
+    'folke/neodev.nvim', -- neovim related lsp
+    'nvim-tree/nvim-web-devicons',
+    'nvim-lua/plenary.nvim',
+    'stevearc/dressing.nvim', -- proper UI elements
+    
     {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
     },
@@ -25,7 +41,6 @@ return {
 
             -- Language server manager
             {
-            
                 'williamboman/mason.nvim',
                 build = function()
                     pcall(vim.cmd, 'MasonUpdate')
@@ -34,12 +49,12 @@ return {
             { 'williamboman/mason-lspconfig.nvim' },
 
             -- Improved Typescript support
-            {'jose-elias-alvarez/typescript.nvim'},
+            { 'jose-elias-alvarez/typescript.nvim' },
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' }, -- Required
+            { 'hrsh7th/nvim-cmp' },     -- Required
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' }, -- Required
+            { 'L3MON4D3/LuaSnip' },     -- Required
         }
     }
 }

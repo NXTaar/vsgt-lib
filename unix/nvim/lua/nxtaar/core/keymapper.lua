@@ -1,4 +1,4 @@
-local keymap = vim.keymap.set
+local keymaps = require('nxtaar.keymaps')
 
 local M = {}
 local actions = {}
@@ -9,27 +9,7 @@ local function cmd_cb(cmd)
     end
 end
 
-function M.register_keymap_action(action, cb)
-    if actions[action] == nil then
-        print('No keymaps for action: ' .. action)
-        return
-    end
-
-    local config = actions[action]
-
-    keymap(config.mode, config.key, cb, config.options)
-end
-
-function M.get_keymap_config_for_action(action)
-    if actions[action] == nil then
-        print('No keymap config for action: ' .. action)
-        return
-    end
-
-    return actions[action]
-end
-
-function M.keymap(config)
+local function assign_keymap(config)
     local mode = config.mode or 'n'
     local silent = config.silent or true
     local buffer = config.buffer or false
@@ -56,7 +36,31 @@ function M.keymap(config)
         return
     end
 
-    keymap(mode, key, output, options)
+    vim.keymap.set(mode, key, output, options)
+end
+
+for _, keymap_config in ipairs(keymaps) do
+    assign_keymap(keymap_config)
+end
+
+function M.register_keymap_action(action, cb)
+    if actions[action] == nil then
+        print('No keymaps for action: ' .. action)
+        return
+    end
+
+    local config = actions[action]
+
+    vim.keymap.set(config.mode, config.key, cb, config.options)
+end
+
+function M.get_keymap_config_for_action(action)
+    if actions[action] == nil then
+        print('No keymap config for action: ' .. action)
+        return
+    end
+
+    return actions[action]
 end
 
 return M

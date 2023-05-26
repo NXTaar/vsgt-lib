@@ -1,4 +1,4 @@
-local plugins = require("nxtaar.plugins.list")
+local plugins = require("nxtaar.plugins")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 

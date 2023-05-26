@@ -18,6 +18,7 @@ list=(
     python3
     pkg-config
     ripgrep
+    fd
     tmux
     wget
     yarn

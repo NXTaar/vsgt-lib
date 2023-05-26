@@ -2,16 +2,15 @@ local cmp = require('cmp')
 local lsp_zero = require('lsp-zero')
 local neovim_lua_hints = require('neodev')
 local typescript = require('typescript')
-local lsp_settings = require('nxtaar.lsp.settings')
-local keymap = require('nxtaar.keymaps.utils')
-local action = require('nxtaar.actions').action
+local keymapper = require('nxtaar.core.keymapper')
+local action = require('nxtaar.utils.actions').action
+local lsp_utils = require('nxtaar.utils.lsp_utils')
 
-local get_keymap_config_for_action = keymap.get_keymap_config_for_action
-local register_keymap_action = keymap.register_keymap_action
-local apply_server_settings = lsp_settings.apply_server_settings
-local formatting_settings = lsp_settings.formatting_settings
-local language_servers = lsp_settings.language_servers
-local get_lsp_config = lsp_settings.get_lsp_config
+local get_keymap_config_for_action = keymapper.get_keymap_config_for_action
+local register_keymap_action = keymapper.register_keymap_action
+local apply_server_settings = lsp_utils.apply_server_settings
+local get_lsp_config = lsp_utils.get_lsp_config
+local diagnostic = lsp_utils.diagnostic
 
 neovim_lua_hints.setup {}
 
@@ -23,26 +22,21 @@ local lsp = lsp_zero.preset({
     },
 })
 
-lsp.ensure_installed(language_servers)
+lsp.ensure_installed(lsp_utils.language_servers)
 
-lsp.format_on_save(formatting_settings)
+lsp.format_on_save(lsp_utils.formatting_settings)
 
-lsp.skip_server_setup({ 'tsserver' })
+lsp.skip_server_setup(lsp_utils.skip_servers)
 
 apply_server_settings(function(server, opts)
     lsp.configure(server, opts)
 end)
 
 vim.diagnostic.config({
-    virtual_text = false,
+    virtual_text = diagnostic.virtual_text,
 })
 
-lsp.set_sign_icons({
-    error = '',
-    warn = '',
-    hint = '⚑',
-    info = ''
-})
+lsp.set_sign_icons(diagnostic.icons)
 
 lsp.on_attach(function()
     register_keymap_action('lsp.show-hint', vim.lsp.buf.hover)
@@ -76,3 +70,5 @@ cmp.setup({
 })
 
 typescript.setup(get_lsp_config('tsserver'))
+
+register_keymap_action('lsp.show-lsp-info', 'LSPInfo')

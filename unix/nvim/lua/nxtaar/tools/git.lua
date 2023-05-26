@@ -1,5 +1,5 @@
 local cmd = vim.cmd
-local register_keymap_action = require('nxtaar.keymaps.utils').register_keymap_action
+local register_keymap_action = require('nxtaar.core.keymapper').register_keymap_action
 
 local GSTATUS_HEIGHT = 20
 

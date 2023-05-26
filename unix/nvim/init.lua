@@ -1,12 +1,14 @@
 require('nxtaar.settings')
-require('nxtaar.plugins')
-require('nxtaar.keymaps')
 
-require('nxtaar.telescope')
+require('nxtaar.core.plugin_manager')
+require('nxtaar.core.keymapper')
+require('nxtaar.core.treesitter')
+require('nxtaar.core.ide')
 
-require('nxtaar.colorscheme')
-require('nxtaar.treesitter')
-require('nxtaar.file_explorer')
-require('nxtaar.git')
+require('nxtaar.editor.bottom_line')
+require('nxtaar.editor.comments')
+require('nxtaar.editor.colorscheme')
 
-require('nxtaar.lsp')
+require('nxtaar.tools.git')
+require('nxtaar.tools.telescope')
+require('nxtaar.tools.fs_navigation')
