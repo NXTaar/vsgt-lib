@@ -9,20 +9,38 @@ local function cmd_cb(cmd)
     end
 end
 
-function M.register_keymap_action(key, callback)
-    actions[key] = callback
+function M.register_keymap_action(action, cb)
+    if actions[action] == nil then
+        print('No keymaps for action: ' .. action)
+        return
+    end
+
+    local config = actions[action]
+
+    keymap(config.mode, config.key, cb, config.options)
+end
+
+function M.get_keymap_config_for_action(action)
+    if actions[action] == nil then
+        print('No keymap config for action: ' .. action)
+        return
+    end
+
+    return actions[action]
 end
 
 function M.keymap(config)
     local mode = config.mode or 'n'
     local silent = config.silent or true
-    local remap = config.noremap or false
-    local key = config.l_key and "<leader>" .. config.l_key or config.key
+    local buffer = config.buffer or false
+    local remap = config.remap or true
+    local key = config.l_key and '<leader>' .. config.l_key or config.key
     local output = nil
 
     local options = {
         silent = silent,
-        remap = remap
+        remap = remap,
+        buffer = buffer
     }
 
     if config.cmd then
@@ -33,12 +51,8 @@ function M.keymap(config)
         output = config.callback
     end
 
-    if config.action and actions[config.action] ~= nil then
-        output = actions[config.action]
-    end
-
-    if config.action and actions[config.action] == nil then
-        print("No registered keymap for action: " .. config.action)
+    if config.action then
+        actions[config.action] = { key = key, options = options, mode = mode }
         return
     end
 
