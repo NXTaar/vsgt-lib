@@ -21,8 +21,12 @@ mkdir -p ~/.config
 ln -s $(get_abs_filename "../nvim") ~/.config/nvim
 echo Neovim configuration folder symlink ✅
 
-ln -s $(get_abs_filename "../zsh/.tmux.conf") ~/.tmux.conf
+ln -s $(get_abs_filename "../tmux/.tmux.conf") ~/.tmux.conf
 echo tmux config symlink ✅
+
+ln -s $(get_abs_filename "../tmux/flags.sh") ~/.tmux/flags.sh
+chmod u+x ~/.tmux/flags.sh 
+echo tmux flags file symlink ✅
 
 ln -s $(get_abs_filename "../zsh/svgo.config.js") ~/.svgoconfig
 echo svgo config symlink ✅
