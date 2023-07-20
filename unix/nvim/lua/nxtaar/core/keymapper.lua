@@ -31,6 +31,10 @@ local function assign_keymap(config)
         output = config.callback
     end
 
+    if config.to then
+        output = config.to
+    end
+
     if config.action then
         actions[config.action] = { key = key, options = options, mode = mode }
         return
@@ -43,15 +47,21 @@ for _, keymap_config in ipairs(keymaps) do
     assign_keymap(keymap_config)
 end
 
-function M.register_keymap_action(action, cb)
+function M.register_keymap_action(action, cb, type)
     if actions[action] == nil then
         print('No keymaps for action: ' .. action)
         return
     end
 
+    local output = cb
+
+    if type == 'cmd' then
+        output = cmd_cb(cb)
+    end
+
     local config = actions[action]
 
-    vim.keymap.set(config.mode, config.key, cb, config.options)
+    vim.keymap.set(config.mode, config.key, output, config.options)
 end
 
 function M.get_keymap_config_for_action(action)

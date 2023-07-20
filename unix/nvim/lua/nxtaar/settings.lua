@@ -69,5 +69,8 @@ opt.iskeyword:remove { ':' }
 -- Substitude highlights and changes on the fly
 opt.inccommand = 'split'
 
+-- Session file
+vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+
 -- UI language
 cmd('language en_US')

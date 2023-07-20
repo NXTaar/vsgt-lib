@@ -12,6 +12,8 @@ local apply_server_settings = lsp_utils.apply_server_settings
 local get_lsp_config = lsp_utils.get_lsp_config
 local diagnostic = lsp_utils.diagnostic
 
+register_keymap_action('lsp.show-lsp-info', 'LSPInfo', 'cmd')
+
 neovim_lua_hints.setup {}
 
 local lsp = lsp_zero.preset({
@@ -23,9 +25,7 @@ local lsp = lsp_zero.preset({
 })
 
 lsp.ensure_installed(lsp_utils.language_servers)
-
 lsp.format_on_save(lsp_utils.formatting_settings)
-
 lsp.skip_server_setup(lsp_utils.skip_servers)
 
 apply_server_settings(function(server, opts)
@@ -44,7 +44,7 @@ lsp.on_attach(function()
     register_keymap_action('lsp.go-to-declaration', vim.lsp.buf.declaration)
     register_keymap_action('lsp.go-to-implementation', vim.lsp.buf.implementation)
     register_keymap_action('lsp.go-to-type-definition', vim.lsp.buf.type_definition)
-    register_keymap_action('lsp.go-to-references', action('telescope.show-references'))
+    register_keymap_action('lsp.go-to-references', action('trouble.show-references'))
     register_keymap_action('lsp.signature-help', vim.lsp.buf.signature_help)
     register_keymap_action('lsp.rename', vim.lsp.buf.rename)
     register_keymap_action('lsp.format-async', function()
@@ -70,5 +70,3 @@ cmp.setup({
 })
 
 typescript.setup(get_lsp_config('tsserver'))
-
-register_keymap_action('lsp.show-lsp-info', 'LSPInfo')

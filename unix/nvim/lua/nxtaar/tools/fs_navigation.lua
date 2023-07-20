@@ -12,7 +12,8 @@ oil.setup({
         },
     },
     view_options = {
-        show_hidden = false }
+        show_hidden = true
+    }
 })
 
 register_keymap_action('oil.open', function()

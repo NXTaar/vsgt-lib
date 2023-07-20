@@ -9,9 +9,12 @@ source /opt/homebrew/share/antigen/antigen.zsh
 antigen init ~/.antigenrc
 
 export NVM_DIR=~/.nvm
+export EDITOR=nvim
+export PATH
+
 source $(brew --prefix nvm)/nvm.sh
 
-alias zconf="vim ~/.zshrc"
+alias zconf="nvim ~/.zshrc"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

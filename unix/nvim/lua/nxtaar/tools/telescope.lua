@@ -25,3 +25,7 @@ register_keymap_action('telescope.find-in-files', function()
         builtin.find_files()
     end
 end)
+
+register_keymap_action('telescope.live-grep', function()
+    builtin.live_grep()
+end)

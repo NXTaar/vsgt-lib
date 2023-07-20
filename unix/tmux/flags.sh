@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FLAGS=${1//\*/C} # current window flag
+FLAGS=${1//\*/} # current window flag
 FLAGS=${FLAGS//-/⦁} # last window flag
 FLAGS=${FLAGS//\#/} # window activity flag
 FLAGS=${FLAGS//\~/} # window silence flag

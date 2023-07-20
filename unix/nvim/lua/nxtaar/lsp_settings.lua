@@ -1,8 +1,9 @@
 local lsp = require('lsp-zero')
 local json_schemas = require('schemastore').json.schemas()
 local register_keymap_action = require('nxtaar.core.keymapper').register_keymap_action
+local tbl_find = require('nxtaar.utils.table').tbl_find
 
-return {
+local settings = {
     formatting = {
         format_opts = {
             async = true,
@@ -74,9 +75,41 @@ return {
                 }
             })
         },
+        eslint = {
+            autoformat_files = {
+                'typescript'
+            },
+            lsp = {
+                on_attach = function(client, bufnr)
+                    local path = vim.api.nvim_buf_get_name(bufnr)
+
+                    local use_custom_config = tbl_find({
+                        'tochka/reports',
+                        'tochka/tar%-core',
+                        'tochka/tar%-demand',
+                        'tochka/tax%-patents',
+                        'tochka/tax%-auto%-reports'
+                    }, function(pattern) return string.find(path, pattern) end)
+
+                    if use_custom_config then
+                        client.config.settings.options = {
+                            configFile = './.eslintrc.prettier.json',
+                        }
+                    end
+
+                    vim.api.nvim_create_autocmd('BufWritePre', {
+                        buffer = bufnr,
+                        command = 'EslintFixAll',
+                    })
+                end,
+            }
+        },
+        bashls = {},
         cssls = {},
         cssmodules_ls = {},
         html = {}
     },
     skip_servers = { 'tsserver' }
 }
+
+return settings

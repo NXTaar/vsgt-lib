@@ -1,5 +1,4 @@
 local config = require('nxtaar.lsp_settings')
-
 local M = {}
 
 M.language_servers = vim.tbl_keys(config.servers)

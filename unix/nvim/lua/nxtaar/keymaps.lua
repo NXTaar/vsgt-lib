@@ -3,20 +3,24 @@ return {
     { key = '<C-n>', cmd = 'noh' },
 
     -- Split-screen navigation
-    { key = '<C-h>', cmd = '<C-w>h' },
-    { key = '<C-j>', cmd = '<C-w>j' },
-    { key = '<C-k>', cmd = '<C-w>k' },
-    { key = '<C-l>', cmd = '<C-w>l' },
+    { key = '<C-h>', to = '<C-w>h' },
+    { key = '<C-j>', to = '<C-w>j' },
+    { key = '<C-k>', to = '<C-w>k' },
+    { key = '<C-l>', to = '<C-w>l' },
 
     -- Version control
     { l_key = 'gg',  action = 'git.open-figutive' },
     { l_key = 'gtr', action = 'git.open-flog-tree' },
+    { l_key = 'gb',  action = 'git.branches-list.toggle' },
+
+    { l_key = 'u',   action = 'undo.toggle-tree' },
 
     -- Source file
     { l_key = 'sc',  cmd = ":source % | echo 'File '.expand('%').' sourced successfully'" },
 
     -- File navigation
     { l_key = 'f',   action = 'telescope.find-in-files' },
+    { l_key = 'lg',  action = 'telescope.live-grep' },
     { l_key = '-',   action = 'oil.open' },
 
     -- LSP
@@ -112,12 +116,42 @@ return {
         remap = false,
         buffer = true
     },
-    { l_key = 'li', action = 'lsp.show-lsp-info' },
+    { l_key = 'li',  action = 'lsp.show-lsp-info' },
 
     -- Typescript
-    { l_key = 'ti', action = 'typescript.add-missing-imports',   buffer = true },
-    { l_key = 'tu', action = 'typescript.remove-unused-imports', buffer = true },
+    { l_key = 'ti',  action = 'typescript.add-missing-imports',                buffer = true },
+    { l_key = 'tu',  action = 'typescript.remove-unused-imports',              buffer = true },
 
     -- Code completion
-    { key = '<CR>', action = 'completion.select' },
+    { key = '<CR>',  action = 'completion.select' },
+
+    -- Buffers
+    { l_key = 'b',   action = 'buffers.open' },
+
+    -- Navigation
+    { l_key = '[',   action = 'navigation.go-to-previous' },
+    { l_key = ']',   action = 'navigation.go-to-next' },
+    { l_key = '{',   action = 'navigation.mark-file' },
+    { l_key = '}',   action = 'navigation.toggle-menu' },
+    { key = 'f',     action = 'navigation.line.next-symbol',                   mode = { 'n', 'x' } },
+    { key = 'F',     action = 'navigation.line.previous-symbol',               mode = { 'n', 'x' } },
+    { key = 't',     action = 'navigation.line.next-symbol-before-cursor',     mode = { 'n', 'x' } },
+    { key = 'T',     action = 'navigation.line.previous-symbol-before-curson', mode = { 'n', 'x' } },
+    { l_key = 'm',   action = 'navigation.hop-2chars',                         mode = { 'n', 'x' } },
+    { l_key = 'hl',  action = 'navigation.hop-line',                           mode = { 'n', 'x' } },
+    { l_key = 'hv',  action = 'navigation.hop-vertical',                       mode = { 'n', 'x' } },
+    { l_key = 'w',   action = 'navigation.hop-word',                           mode = { 'n', 'x' } },
+    { l_key = 'hp',  action = 'navigation.hop-pattern',                        mode = { 'n', 'x' } },
+
+    -- Clean up SVG
+    { l_key = 'svg', to = ':silent !svgo --config ~/.svgoconfig %<CR>' },
+
+    -- Problems
+    { l_key = 'pp',  action = 'problems.show-in-file' },
+    { l_key = 'pP',  action = 'problems.show-in-workspace' },
+    { l_key = 'po',  action = 'problems.toggle' },
+
+    { l_key = 'jt',  action = 'reformat.toggle' },
+    { l_key = 'js',  action = 'reformat.split' },
+    { l_key = 'jj',  action = 'reformat.join' },
 }
