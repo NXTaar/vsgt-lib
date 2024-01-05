@@ -11,6 +11,9 @@ return {
     -- Version control
     { l_key = 'gg',  action = 'git.open-figutive' },
     { l_key = 'gtr', action = 'git.open-flog-tree' },
+    { l_key = 'gpp', action = 'git.push' },
+    { l_key = 'gpl', action = 'git.pull' },
+    { l_key = 'gpr', action = 'git.push-force' },
     { l_key = 'gb',  action = 'git.branches-list.toggle' },
 
     { l_key = 'u',   action = 'undo.toggle-tree' },
@@ -21,6 +24,7 @@ return {
     -- File navigation
     { l_key = 'f',   action = 'telescope.find-in-files' },
     { l_key = 'lg',  action = 'telescope.live-grep' },
+    { l_key = 'pr',  action = 'telescope.show-projects' },
     { l_key = '-',   action = 'oil.open' },
 
     -- LSP

@@ -10,6 +10,12 @@ register_keymap_action('git.open-figutive', function()
     cmd(GSTATUS_HEIGHT .. 'wincmd_')
 end)
 
+register_keymap_action('git.push', 'Git push', 'cmd')
+
+register_keymap_action('git.pull', 'Git pull -r', 'cmd')
+
+register_keymap_action('git.push-force', 'Git push -f', 'cmd')
+
 register_keymap_action('git.open-flog-tree', 'Flog -all', 'cmd')
 
 register_keymap_action('git.branches-list.toggle', 'MerginalToggle', 'cmd')
