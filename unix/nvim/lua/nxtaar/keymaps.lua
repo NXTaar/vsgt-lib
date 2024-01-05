@@ -13,7 +13,7 @@ return {
     { l_key = 'gtr', action = 'git.open-flog-tree' },
     { l_key = 'gpp', action = 'git.push' },
     { l_key = 'gpl', action = 'git.pull' },
-    { l_key = 'gpr', action = 'git.push-force' },
+    { l_key = 'gpf', action = 'git.push-force' },
     { l_key = 'gb',  action = 'git.branches-list.toggle' },
 
     { l_key = 'u',   action = 'undo.toggle-tree' },

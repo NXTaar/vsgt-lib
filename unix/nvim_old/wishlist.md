@@ -1,3 +1,0 @@
-- https://github.com/lewis6991/impatient.nvim
-- https://github.com/rcarriga/nvim-notify
--
