@@ -9,11 +9,20 @@ telescope.setup({
         find_files = {
             find_command = { 'fd', '--type', 'f', '--strip-cwd-prefix' }
         },
-    }
+    },
 })
+
+telescope.load_extension('project')
 
 register_action('telescope.show-references', function()
     builtin.lsp_references(themes.get_ivy({ initial_mode = 'normal' }))
+end)
+
+register_keymap_action('telescope.show-projects', function()
+    telescope.extensions.project.project(themes.get_dropdown({
+        initial_mode = 'normal',
+        order_by = 'asc',
+    }))
 end)
 
 register_keymap_action('telescope.find-in-files', function()
