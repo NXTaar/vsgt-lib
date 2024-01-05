@@ -86,6 +86,8 @@ local settings = {
                     local use_custom_config = tbl_find({
                         'tochka/reports',
                         'tochka/tar%-core',
+                        'tochka/documents%-signer',
+                        'tochka/qes%-settings',
                         'tochka/tar%-demand',
                         'tochka/tax%-patents',
                         'tochka/tax%-auto%-reports'
@@ -93,7 +95,7 @@ local settings = {
 
                     if use_custom_config then
                         client.config.settings.options = {
-                            configFile = './.eslintrc.prettier.json',
+                            overrideConfigFile = './.eslintrc.prettier.json',
                         }
                     end
 
