@@ -1,6 +1,16 @@
-local g = vim.g
+local M = {
+    'sainnhe/everforest',
+}
 
-g.everforest_background = 'hard'
-g.everforest_better_performance = 1
+function M.config()
+    local g = vim.g
 
-vim.cmd("colorscheme everforest")
+    g.everforest_background = 'hard'
+    g.everforest_better_performance = 1
+
+    vim.cmd('colorscheme everforest')
+    vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
+end
+
+return M
+

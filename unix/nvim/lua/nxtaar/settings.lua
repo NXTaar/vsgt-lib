@@ -4,6 +4,8 @@ local g            = vim.g
 
 local CACHE_PATH   = vim.fn.stdpath('cache')
 
+opt.cmdheight      = 0
+
 -- UI Font
 vim.o.guifont      = 'SauceCodePro Nerd Font Mono'
 

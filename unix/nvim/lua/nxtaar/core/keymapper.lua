@@ -47,7 +47,7 @@ for _, keymap_config in ipairs(keymaps) do
     assign_keymap(keymap_config)
 end
 
-function M.register_keymap_action(action, cb, type)
+function register_keymap_action(action, cb, type)
     if actions[action] == nil then
         print('No keymaps for action: ' .. action)
         return
@@ -64,7 +64,7 @@ function M.register_keymap_action(action, cb, type)
     vim.keymap.set(config.mode, config.key, output, config.options)
 end
 
-function M.get_keymap_config_for_action(action)
+function get_keymap_config_for_action(action)
     if actions[action] == nil then
         print('No keymap config for action: ' .. action)
         return

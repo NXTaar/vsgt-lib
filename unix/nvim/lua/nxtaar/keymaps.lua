@@ -127,7 +127,10 @@ return {
     { l_key = 'tu',  action = 'typescript.remove-unused-imports',              buffer = true },
 
     -- Code completion
-    { key = '<CR>',  action = 'completion.select' },
+    { key = '<C-p>',  action = 'completion.previous' },
+    { key = '<C-n>',  action = 'completion.next' },
+    { key = '<C-y>',  action = 'completion.confirm' },
+    { key = '<C-Space>',  action = 'completion.complete' },
 
     -- Buffers
     { l_key = 'b',   action = 'buffers.open' },
@@ -158,4 +161,5 @@ return {
     { l_key = 'jt',  action = 'reformat.toggle' },
     { l_key = 'js',  action = 'reformat.split' },
     { l_key = 'jj',  action = 'reformat.join' },
+    { key = '<Esc>', to = '<C-\\><C-n>',                                       mode = { 't' } }
 }

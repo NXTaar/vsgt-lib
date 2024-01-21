@@ -1,7 +1,5 @@
 local CONFGIG_PATH = vim.fn.stdpath('config')
 
-vim.api.nvim_create_user_command('TmuxConf', 'e ~/.tmux.conf', { nargs = 0 })
-
 vim.api.nvim_create_user_command('Keymaps', function()
     vim.cmd('e ' .. CONFGIG_PATH .. '/lua/nxtaar/keymaps.lua')
 end, { nargs = 0 })

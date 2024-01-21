@@ -1,5 +1,14 @@
-local comments = require('nvim_comment')
 vim.g.skip_ts_context_commentstring_module = true
 
-comments.setup({ comment_empty = false })
-require('ts_context_commentstring').setup {}
+local M = {
+    { 'JoosepAlviste/nvim-ts-context-commentstring' },
+    {
+        'terrortylor/nvim-comment',
+        main = 'nvim_comment',
+        opts = {
+            comment_empty = false
+        }
+    }
+}
+
+return M

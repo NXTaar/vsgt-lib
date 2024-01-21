@@ -1,8 +1,16 @@
-local reach = require('reach')
-local register_keymap_action = require('nxtaar.core.keymapper').register_keymap_action
+local M = {
+    'toppair/reach.nvim'
+}
 
-reach.setup()
+function M.config()
+    local reach = require('reach')
 
-register_keymap_action('buffers.open', function()
-    vim.cmd('ReachOpen buffers')
-end)
+    reach.setup()
+
+    register_keymap_action('buffers.open', function()
+        vim.cmd('ReachOpen buffers')
+    end)
+end
+
+return M
+
