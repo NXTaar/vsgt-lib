@@ -1,11 +1,12 @@
 require('nxtaar.spec')
 require('nxtaar.settings')
 require('nxtaar.commands')
-require('nxtaar.core.keymapper')
+require('nxtaar.keymapper')
 
 spec('nxtaar.lsp.setup')
-spec('nxtaar.core.treesitter')
 
+spec('nxtaar.editor.code_completion')
+spec('nxtaar.editor.treesitter')
 spec('nxtaar.editor.colorscheme')
 spec('nxtaar.editor.bottom_line')
 spec('nxtaar.editor.comments')

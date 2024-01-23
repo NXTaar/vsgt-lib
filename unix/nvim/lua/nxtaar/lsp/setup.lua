@@ -10,13 +10,10 @@ local M = {
         },
         { 'williamboman/mason-lspconfig.nvim' },
         { 'neovim/nvim-lspconfig' },
-        { 'hrsh7th/cmp-nvim-lsp' },
-        { 'hrsh7th/nvim-cmp' },
-        { 'L3MON4D3/LuaSnip' },
         { 'jose-elias-alvarez/typescript.nvim' },
         { 'stevearc/dressing.nvim' },
         { 'folke/neodev.nvim' },
-        { 'b0o/schemastore.nvim' }
+        { 'b0o/schemastore.nvim' },
     }
 }
 
@@ -27,7 +24,6 @@ function M.config()
     local mason_lspconfig = require('mason-lspconfig')
     local keymap_actions = require('nxtaar.lsp.keymap_actions')
     local diagnostic = require('nxtaar.lsp.diagnostic')
-    local cmp = require('nxtaar.lsp.code_completion')
     local format_opts = require('nxtaar.lsp.formatting')
     local languages = require('nxtaar.lsp.lang_list')
     local neodev = require('neodev')
