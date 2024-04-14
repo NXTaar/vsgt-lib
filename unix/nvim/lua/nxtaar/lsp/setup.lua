@@ -20,6 +20,7 @@ local M = {
 function M.config()
     local lsp_zero = require('lsp-zero')
     local mason = require('mason')
+    local dressing = require('dressing')
     local typescript = require('typescript')
     local mason_lspconfig = require('mason-lspconfig')
     local keymap_actions = require('nxtaar.lsp.keymap_actions')
@@ -31,6 +32,11 @@ function M.config()
     -- Neovim specific LSP server (hints and docs)
     neodev.setup({})
     ----
+    dressing.setup({
+        input = {
+            insert_only = false,
+        }
+    })
 
     -- Diagnostic
     vim.diagnostic.config({
