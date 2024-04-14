@@ -36,9 +36,14 @@ local function hop_config()
 end
 
 local M = {
-    { 'phaazon/hop.nvim',     config = hop_config },
+    {
+        'phaazon/hop.nvim',
+        config = hop_config,
+        dependencies = {
+            'nvim-lua/plenary.nvim'
+        }
+    },
     { 'ThePrimeagen/harpoon', config = harpoon }
 }
 
 return M
-

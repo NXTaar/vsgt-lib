@@ -62,7 +62,7 @@ wezterm.on(
 )
 
 wezterm.on('update-right-status', function(window, pane)
-    local date = wezterm.strftime(CLOCK .. '  %H:%M | ' .. CALENDAR .. '  %A, %B %-d');
+    local date = wezterm.strftime(CLOCK .. '  %H:%M | ' .. CALENDAR .. '  %A, %B %-d ');
 
     window:set_right_status(wezterm.format({
         { Text = date }

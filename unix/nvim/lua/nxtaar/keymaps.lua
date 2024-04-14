@@ -1,31 +1,38 @@
+local actions = require('nxtaar.utils.action-names')
 return {
     -- Clear highlighted selection
-    { key = '<C-n>', cmd = 'noh' },
+    { key = '<C-n>',  cmd = 'noh' },
 
     -- Split-screen navigation
-    { key = '<C-h>', to = '<C-w>h' },
-    { key = '<C-j>', to = '<C-w>j' },
-    { key = '<C-k>', to = '<C-w>k' },
-    { key = '<C-l>', to = '<C-w>l' },
+    { key = '<C-h>',  to = '<C-w>h' },
+    { key = '<C-j>',  to = '<C-w>j' },
+    { key = '<C-k>',  to = '<C-w>k' },
+    { key = '<C-l>',  to = '<C-w>l' },
 
     -- Version control
-    { l_key = 'gg',  action = 'git.open' },
-    { l_key = 'gtr', action = 'git.open-flog-tree' },
-    { l_key = 'gpp', action = 'git.push' },
-    { l_key = 'gpl', action = 'git.pull' },
-    { l_key = 'gpf', action = 'git.push-force' },
-    { l_key = 'gb',  action = 'git.branches-list.toggle' },
+    { l_key = 'gg',   action = 'git.open-lazygit' },
+    { l_key = 'gf',   action = 'git.open-fugitive' },
+    { l_key = 'gtr',  action = 'git.open-flog-tree' },
+    { l_key = 'dfo',  action = 'git.open-diff-view' },
+    { l_key = 'dfc',  action = 'git.close-diff-view' },
+    { l_key = 'gbl',  action = 'git.blame' },
 
-    { l_key = 'u',   action = 'undo.toggle-tree' },
+    { l_key = 'u',    action = 'undo.toggle-tree' },
 
     -- Source file
-    { l_key = 'sc',  cmd = ":source % | echo 'File '.expand('%').' sourced successfully'" },
+    { l_key = 'sc',   cmd = ":source % | echo 'File '.expand('%').' sourced successfully'" },
 
     -- File navigation
-    { l_key = 'f',   action = 'telescope.find-in-files' },
-    { l_key = 'lg',  action = 'telescope.live-grep' },
-    { l_key = 'pr',  action = 'telescope.show-projects' },
-    { l_key = '-',   action = 'oil.open' },
+    { l_key = 'f',    action = actions.SEARCH_FILE },
+    { l_key = 'lg',   action = actions.SEARCH_GREP },
+    { l_key = '-',    action = 'oil.open' },
+
+    -- Projects
+    { l_key = 'pr',   action = actions.PROJECTS_LIST },
+    { l_key = 'pf',   action = actions.SEARCH_FILE_ALL_PROJECTS },
+    { l_key = 'plg',  action = actions.SEARCH_GREP_ALL_PROJECTS },
+
+    { l_key = 'yarn', cmd = 'vs|:term rm -rf node_modules && yarn' },
 
     -- LSP
     {
@@ -135,7 +142,8 @@ return {
     { key = '<S-Tab>',   action = 'completion.smart-select-prev' },
 
     -- Buffers
-    { l_key = 'b',       action = 'buffers.open' },
+    { l_key = 'bl',      action = actions.BUFFERS_OPEN_LIST },
+    { l_key = 'bcl',     action = actions.BUFFERS_CLOSE_ALL_BUT_CURRENT },
 
     -- Navigation
     { l_key = '[',       action = 'navigation.go-to-previous' },

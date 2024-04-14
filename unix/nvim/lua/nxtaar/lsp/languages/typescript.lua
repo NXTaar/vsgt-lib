@@ -10,8 +10,16 @@ return {
                     register_keymap_action('typescript.remove-unused-imports', '<cmd>TypescriptRemoveUnused<cr>')
                 end
             }
+        }
+    },
+    {
+        server = 'biome',
+        autoformat_files = {
+            'typescript'
         },
-        skip = true
+        config = {
+            autostart = false
+        }
     },
     {
         server = 'eslint',
@@ -24,6 +32,7 @@ return {
 
                 local use_custom_config = tbl_find({
                     'tochka/reports',
+                    'tochka/t15%-api',
                     'tochka/tar%-core',
                     'tochka/documents%-signer',
                     'tochka/qes%-settings',

@@ -1,16 +1,28 @@
 local M = {
-    'sainnhe/everforest',
+    'AlexvZyl/nordic.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {
+        bold_keywords = true,
+        transparent_bg = true
+    }
 }
 
-function M.config()
-    local g = vim.g
+function M.config(_, opts)
+    local theme = require('nordic')
 
-    g.everforest_background = 'hard'
-    g.everforest_better_performance = 1
+    theme.setup(opts)
+    theme.load()
+    -- nordic.setup({
+    --     on_palette = function(palette)
+    --         return palette
+    --     end,
+    --     bold_keywords = true,
+    --     -- transparent_bg = true,
+    -- })
 
-    vim.cmd('colorscheme everforest')
-    vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
+    -- nordic.load()
+    -- vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
 end
 
 return M
-

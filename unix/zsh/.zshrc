@@ -10,7 +10,7 @@ antigen init ~/.antigenrc
 
 export NVM_DIR=~/.nvm
 export EDITOR=nvim
-export PATH
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 source $(brew --prefix nvm)/nvm.sh
 

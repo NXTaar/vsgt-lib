@@ -54,6 +54,9 @@ opt.foldmethod     = 'expr'
 opt.foldenable     = false
 opt.foldexpr       = 'nvim_treesitter#foldexpr()'
 
+-- Window split
+opt.splitright     = true
+
 -- Scroll
 opt.scrolloff      = 8
 
